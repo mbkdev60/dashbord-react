@@ -1,0 +1,19 @@
+.Search {
+
+    padding-right: 9.5rem !important;
+    padding-left: 12rem !important;
+}
+
+@media (max-width: 768px) {
+    .Search {
+        padding-right: 0rem !important;
+        padding-left: 1rem !important;
+    }
+}
+.btntype{
+    color: #fff;
+        background-color: #5569ff;
+        box-shadow: none;
+        font-weight: bold;
+        text-transform: none;
+}
