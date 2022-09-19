@@ -3,7 +3,7 @@ import { Box, Button, Container, Grid, Typography, Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import aures1 from '../../../images/aures1.jpg';
+import logo from '../../../images/logo.png';
 import Image from './Image';
 import Swal from 'sweetalert2';
 import './style.css';
@@ -224,9 +224,9 @@ function Register() {
                   <Grid item md={12}>
                     <TsAvatar>
                       <img
-                        src={aures1}
+                        src={logo}
                         alt="Typescript"
-                        style={{ width: '85%', height: '86%' }}
+                        style={{ width: '10rem', height: '6rem' }}
                       />
                     </TsAvatar>
                   </Grid>
@@ -235,16 +235,8 @@ function Register() {
             </Grid>
             <Box sx={{ pb: 2 }}>
               <b>
-                © 2022-Application. All Rights Reserved | Design by Chayma BEN
-                BRAHIM -
-                <span>
-                  <a
-                    style={{ color: '#5569ff', textDecoration: 'none' }}
-                    href="https://aures.com/fr/about-group-pos-retail-equipment/"
-                  >
-                    AURES
-                  </a>
-                </span>
+                © 2022-Application. All Rights Reserved | Designed by Moez BEN
+                KHALED
               </b>
             </Box>
           </Container>

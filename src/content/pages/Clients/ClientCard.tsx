@@ -78,7 +78,7 @@ export default function ClientCard({
       }
     } else {
       Swal.fire({
-        title: 'Il faut modifié un champ!',
+        title: 'Il faut modifier un champ!',
         icon: 'success',
         confirmButtonText: 'Ok'
       });
@@ -88,7 +88,7 @@ export default function ClientCard({
   return (
     <div>
       <Card>
-        <CardHeader title="les informations d'utilisateur" />
+        <CardHeader title="Fihe Client" />
         <Divider />
         <CardContent>
           <Card sx={{ maxWidth: 345 }}>

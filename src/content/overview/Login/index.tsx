@@ -118,7 +118,9 @@ function Login() {
                   style={{
                     color: '#5569ff',
                     textDecoration: 'none',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    marginBottom: '20px'
+
                   }}
                   href="/register"
                   onClick={() => {
@@ -138,7 +140,7 @@ function Login() {
                 <img
                   src={logo}
                   alt="Typescript"
-                  style={{ width: '85%', height: '86%' }}
+                  style={{ width: '12rem', height: '7rem', marginBottom: '20px' }}
                 />
               </TsAvatar>
             </Grid>
@@ -147,16 +149,8 @@ function Login() {
       </Grid>
       <Box sx={{ pb: 2 }}>
         <b>
-          © 2022-Application. All Rights Reserved | Design by Chayma BEN BRAHIM
-          -
-          <span>
-            <a
-              style={{ color: '#5569ff', textDecoration: 'none' }}
-              href="https://aures.com/fr/about-group-pos-retail-equipment/"
-            >
-              AURES
-            </a>
-          </span>
+          © 2022-Application. All Rights Reserved | Designed by Moez BEN KHALED
+         
         </b>
       </Box>
     </Container>

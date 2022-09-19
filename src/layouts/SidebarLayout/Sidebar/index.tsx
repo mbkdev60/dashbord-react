@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Scrollbar from 'src/components/Scrollbar';
 import { SidebarContext } from 'src/contexts/SidebarContext';
-import logo from '../../../images/logo.png';
+import logo from '../../../images/logo_transparent.png';
 import {
   Box,
   Drawer,
@@ -67,7 +67,7 @@ function Sidebar() {
                 <img
                   src={logo}
                   alt="Typescript"
-                  style={{ width: '100px', height: '52px' }}
+                  style={{ width: '13rem', height: '6rem' }}
                 />
               </div>
             </Box>
