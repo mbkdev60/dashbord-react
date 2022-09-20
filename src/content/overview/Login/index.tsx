@@ -17,7 +17,7 @@ const TsAvatar = styled(Box)(
     width: ${theme.spacing(13)};
     height: ${theme.spacing(8)};
     border-radius: ${theme.general.borderRadius};
-    background-color: #dfebf6;
+    background-color: #dff5f6;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@ function Login() {
     }
   }
   return (
-    <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
+    <Container maxWidth="md" sx={{ textAlign: 'center' }}>
       <Grid
         spacing={{ xs: 6, md: 10, col: 12 }}
         justifyContent="center"
@@ -106,7 +106,7 @@ function Login() {
                 variant="contained"
                 onClick={Connecter}
               >
-                Connecter
+               Se Connecter
               </Button>
             </div>
           </div>

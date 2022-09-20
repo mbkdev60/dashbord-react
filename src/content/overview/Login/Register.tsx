@@ -85,11 +85,7 @@ function Register() {
         });
       }
     } else {
-      Swal.fire(
-        'Il est obligatoire de remplir tous les champs !',
-        "S'il vous plait les remplir !",
-        'warning'
-      );
+      Swal.fire('Il est obligatoire de remplir tous les champs !', 'warning');
     }
   }
   async function RegisterClient() {
@@ -118,7 +114,7 @@ function Register() {
   return (
     <OverviewWrapper>
       <Container maxWidth="lg">
-        <Card sx={{ p: 10, mb: 10, borderRadius: 12, m: 10 }}>
+        <Card sx={{  p: 10, mb: 10, borderRadius: 12, m: 10 }}>
           <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
             <Grid
               spacing={{ xs: 6, md: 10 }}
@@ -226,7 +222,11 @@ function Register() {
                       <img
                         src={logo}
                         alt="Typescript"
-                        style={{ width: '10rem', height: '6rem' }}
+                        style={{
+                          width: '12rem',
+                          height: '7rem',
+                          marginBottom: '20px'
+                        }}
                       />
                     </TsAvatar>
                   </Grid>

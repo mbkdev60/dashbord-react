@@ -75,7 +75,7 @@ function Feed({ setpdate }: profiletype) {
       }
     } else {
       Swal.fire({
-        title: 'Il faut modifié au moins un champ !',
+        title: 'Il faut modifier au moins un champ !',
         icon: 'error',
         confirmButtonText: 'Ok'
       });

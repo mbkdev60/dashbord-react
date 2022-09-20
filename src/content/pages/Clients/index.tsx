@@ -136,7 +136,7 @@ export default function DashboardCrypto() {
   return (
     <>
       <Helmet>
-        <title>Utilisateurs</title>
+        <title>Clients</title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader />
@@ -168,7 +168,7 @@ export default function DashboardCrypto() {
             keyboard={false}
           >
             <Modal.Header closeButton>
-              <Modal.Title>Ajouter un utilisateur</Modal.Title>
+              <Modal.Title>Ajouter un client</Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex justify-content-center">
               <div className="d-flex flex-column bd-highlight ">

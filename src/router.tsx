@@ -104,6 +104,10 @@ const routes: RouteObject[] = [
         ]
       }
     ]
+  },
+  {
+    path: '',
+    element: <Navigate to="dashboards/clients" replace />
   }
 ];
 

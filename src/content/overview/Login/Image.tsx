@@ -12,7 +12,7 @@ function Image({ setImage, images }: ImageProps) {
   console.log(Object1, images);
   return (
     <div>
-      {Object1 && images ? (
+      {Object1 || images ? (
         <div>
           <div
             style={{

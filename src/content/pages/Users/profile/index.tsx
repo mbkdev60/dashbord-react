@@ -3,10 +3,10 @@ import { Helmet } from 'react-helmet-async';
 import Footer from 'src/components/Footer';
 import { Grid, Container } from '@mui/material';
 
-import ProfileCover from './ProfileCover';
+import ProfileCover from './ProfileCover'; //Image
 
-import Feed from './Feed';
-import PopularTags from './PopularTags';
+import Profile from './Profile'; //  profil données
+import PopularTags from './PopularTags'; // facebook .....
 
 function ManagementUserProfile() {
   const [update, setpdate] = useState(true);
@@ -17,7 +17,7 @@ function ManagementUserProfile() {
     name: prenom + ' ' + name,
     avatar: picture,
     coverImg: 'http://localhost:5003/aures1.png',
-    description: 'bienvenue '
+    description: 'Bienvenue'+ " " + 'Mr(s)'+ " " + name,
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function ManagementUserProfile() {
   return (
     <>
       <Helmet>
-        <title> Paramétres profile</title>
+        <title> Paramètres du profil</title>
       </Helmet>
       <Container sx={{ mt: 3 }} maxWidth="lg">
         <Grid
@@ -51,7 +51,7 @@ function ManagementUserProfile() {
             <PopularTags />
           </Grid>
           <Grid item xs={12} md={12}>
-            <Feed setpdate={setpdate} />
+            <Profile setpdate={setpdate} />
           </Grid>
         </Grid>
       </Container>

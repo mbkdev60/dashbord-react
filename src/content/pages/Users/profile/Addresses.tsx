@@ -33,7 +33,7 @@ function Addresses() {
           <Divider />
           <Box p={2}>
             <Typography variant="caption" fontWeight="bold">
-              Favourite
+              Favorite
             </Typography>
             <Box sx={{ minHeight: { xs: 0, md: 242 } }} p={2}>
               <Typography variant="h5">Kadin Westervelt</Typography>
@@ -63,7 +63,7 @@ function Addresses() {
           <Divider />
           <Box p={2}>
             <Typography variant="caption" fontWeight="bold">
-              Favourite
+              Favorite
             </Typography>
             <Box sx={{ minHeight: { xs: 0, md: 242 } }} p={2}>
               <Typography variant="h5">Kadin Westervelt</Typography>
