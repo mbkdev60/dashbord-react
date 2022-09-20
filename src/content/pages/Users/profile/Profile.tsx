@@ -51,7 +51,8 @@ function Feed({ setpdate }: profiletype) {
             prenom: prenom,
             img: image,
             mdp: password,
-            user_id: localStorage.getItem('user_id')
+            user_id: localStorage.getItem('user_id'),
+            mail: localStorage.getItem('user')
           })
         })
           .then((response) => response.json())
@@ -64,11 +65,13 @@ function Feed({ setpdate }: profiletype) {
             localStorage.setItem('prenom', prenom);
             setpdate(true);
             Swal.fire({
-              title: 'Votre profile est modifié!',
+              title: 'Votre profil est modifié!',
               icon: 'success',
               confirmButtonText: 'Ok'
+            }).then(function () {
+              //pour refresh la commande
+              window.location.reload();
             });
-            window.location.reload();
           });
       } catch (error) {
         console.error(error);

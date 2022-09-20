@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Scrollbar from 'src/components/Scrollbar';
 import { SidebarContext } from 'src/contexts/SidebarContext';
-import logo from '../../../images/logo_transparent.png';
+import logo from '../../../images/logo.png';
 import {
   Box,
   Drawer,

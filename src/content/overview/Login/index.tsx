@@ -105,8 +105,9 @@ function Login() {
                 size="large"
                 variant="contained"
                 onClick={Connecter}
+                style={{ marginTop: '25px' }}
               >
-               Se Connecter
+                Se Connecter
               </Button>
             </div>
           </div>
@@ -120,7 +121,6 @@ function Login() {
                     textDecoration: 'none',
                     cursor: 'pointer',
                     marginBottom: '20px'
-
                   }}
                   href="/register"
                   onClick={() => {
@@ -140,7 +140,12 @@ function Login() {
                 <img
                   src={logo}
                   alt="Typescript"
-                  style={{ width: '12rem', height: '7rem', marginBottom: '20px' }}
+                  style={{
+                    width: '12rem',
+                    height: '7rem',
+                    marginBottom: '20px',
+                    backgroundColor: '#FFFFFF'
+                  }}
                 />
               </TsAvatar>
             </Grid>
@@ -150,7 +155,6 @@ function Login() {
       <Box sx={{ pb: 2 }}>
         <b>
           © 2022-Application. All Rights Reserved | Designed by Moez BEN KHALED
-         
         </b>
       </Box>
     </Container>

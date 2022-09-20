@@ -33,15 +33,15 @@ function PopularTags() {
         <div className="px-4 py-4  d-flex justify-content-center">
           {' '}
           Avenue Habib Bourguiba 04234,
-          <span style={{ fontSize: '17px', color: '#0077b7' }}>
+          <span style={{ fontSize: '14px', color: '#0077b7' }}>
             {' '}
-            EL Golaa
+             EL Golaa
           </span>{' '}
         </div>
         <Divider />
         <div className="px-4 py-2  d-flex justify-content-center">
           {' '}
-          Douz, Kebelli
+          Douz, Kebilie
         </div>
         <Divider />
         <></>

@@ -114,7 +114,7 @@ function Register() {
   return (
     <OverviewWrapper>
       <Container maxWidth="lg">
-        <Card sx={{  p: 10, mb: 10, borderRadius: 12, m: 10 }}>
+        <Card sx={{ p: 10, mb: 10, borderRadius: 12, m: 10 }}>
           <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
             <Grid
               spacing={{ xs: 6, md: 10 }}
@@ -194,7 +194,7 @@ function Register() {
                     </Button>
                   </div>
                 </div>
-                <Box sx={{ pb: 2, pt: 2 }}>
+                <Box sx={{ pb: 2, pt: 2 }} style={{ marginTop: '10px' }}>
                   <b>
                     Vous avez déjà un compte?
                     <span>
@@ -225,7 +225,8 @@ function Register() {
                         style={{
                           width: '12rem',
                           height: '7rem',
-                          marginBottom: '20px'
+                          marginBottom: '40px',
+                          backgroundColor: '#FFFFFF'
                         }}
                       />
                     </TsAvatar>

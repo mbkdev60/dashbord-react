@@ -82,11 +82,11 @@ const ProfileCover = ({ user }) => {
   return (
     <>
       <Box display="flex" mb={3}>
-        <Tooltip arrow placement="top" title="Go back">
+        {/* <Tooltip arrow placement="top" title="Go back">
           <IconButton color="primary" sx={{ p: 2, mr: 2 }}>
             <ArrowBackTwoToneIcon />
           </IconButton>
-        </Tooltip>
+        </Tooltip> */}
         <Box>
           <Typography variant="h3" component="h3" gutterBottom>
             Profil de {user.name}

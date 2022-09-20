@@ -9,14 +9,14 @@ import Profile from './Profile'; //  profil données
 import PopularTags from './PopularTags'; // facebook .....
 
 function ManagementUserProfile() {
-  const [update, setpdate] = useState(true);
+  const [update, setupdate] = useState(true);
   const [name, setName] = useState('');
   const [prenom, setPrenom] = useState('');
   const [picture, setPicture] = useState('');
-  const user = {
+  const user = { 
     name: prenom + ' ' + name,
     avatar: picture,
-    coverImg: 'http://localhost:5003/aures1.png',
+    coverImg: 'http://localhost:5003/logo2.png',
     description: 'Bienvenue'+ " " + 'Mr(s)'+ " " + name,
   };
 
@@ -27,7 +27,7 @@ function ManagementUserProfile() {
     setName(nameUser);
     setPrenom(prenomUser);
     setPicture(pictureUser);
-    setpdate(false);
+    setupdate(false);
   }, [name, prenom, update, picture]);
 
   return (
@@ -51,7 +51,7 @@ function ManagementUserProfile() {
             <PopularTags />
           </Grid>
           <Grid item xs={12} md={12}>
-            <Profile setpdate={setpdate} />
+            <Profile setpdate={setupdate} />
           </Grid>
         </Grid>
       </Container>
