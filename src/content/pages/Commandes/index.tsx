@@ -80,7 +80,7 @@ export default function DashboardCrypto() {
   return (
     <>
       <Helmet>
-        <title>Produits</title>
+        <title>Commandes</title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader />

@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { FormGroup, Input, Label } from 'reactstrap';
-
+import Image from '../../overview/Login/Image';
 import { Card, CardHeader, CardContent, Divider, Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
@@ -23,13 +23,14 @@ export default function ClientCard({
   selectedClient,
   setIsUpdate
 }: clientcardType) {
+  const [imageclient, setImage] = useState(selectedClient.img);
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
-  const [client, setClient] = useState(selectedClient);
+  const [client, setClient] = useState<any>(selectedClient);
   var alphabetName = client.nom.slice(0, 1);
   var alphabetPrenom = client.prenom.slice(0, 1);
 
@@ -44,7 +45,7 @@ export default function ClientCard({
           setIsUpdate(true);
         });
       Swal.fire({
-        title: 'Vous avez supprimer cet utilisateur !',
+        title: 'Vous avez supprimé ce client !',
         icon: 'error',
         confirmButtonText: 'Ok'
       });
@@ -52,43 +53,62 @@ export default function ClientCard({
       console.log(error);
     }
   }
-  async function EditClient() {
-    if (client) {
-      try {
-        await fetch(
-          `http://localhost:5003/updateclient/${selectedClient.client_id}`,
-          {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(client)
-          }
-        )
+
+  async function RegisterClient() {
+    try {
+      if (imageclient !== client.img) {
+        var formData = new FormData();
+        let img = imageclient;
+        for (const i of Object.keys(img)) {
+          formData.append('imgCollection', img[i as unknown as number]);
+        }
+        await fetch(`http://localhost:5003/uploadImage`, {
+          body: formData,
+          method: 'POST'
+        })
           .then((response) => response.json())
-          .then((data) => {
-            Swal.fire({
-              title: "l'utilisateur est mofifié !",
-              icon: 'success',
-              confirmButtonText: 'Ok'
-            });
-            handleClose1();
-            setIsUpdate(true);
+          .then((data: any) => {
+            EditClient(data);
           });
-      } catch (error) {
-        console.error(error);
+      } else {
+        EditClient(imageclient);
       }
-    } else {
-      Swal.fire({
-        title: 'Il faut modifier un champ!',
-        icon: 'success',
-        confirmButtonText: 'Ok'
-      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function EditClient(imageProfile: any) {
+    try {
+      client.img = imageProfile;
+
+      await fetch(
+        `http://localhost:5003/updateclient/${selectedClient.client_id}`,
+        {
+          method: 'put',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(client)
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          Swal.fire({
+            title: 'Le client est mofifié !',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          }).then(function () {
+            window.location.reload();
+          });
+        });
+    } catch (error) {
+      console.error(error);
     }
   }
 
   return (
     <div>
       <Card>
-        <CardHeader title="Fihe Client" />
+        <CardHeader title="Fiche Client" />
         <Divider />
         <CardContent>
           <Card sx={{ maxWidth: 345 }}>
@@ -104,27 +124,27 @@ export default function ClientCard({
                   <MoreVertIcon />
                 </IconButton>
               }
-              title={client.nom}
-              subheader={client.prenom}
+              title={selectedClient.nom}
+              subheader={selectedClient.prenom}
             />
             <CardMedia
               sx={{
                 height: 0,
-                paddingTop: '56.25%' // 16:9
+                paddingTop: '130%' // 16:9
               }}
               image={client.img}
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
                 Email {''}: {''}
-                {client.mail}
+                {selectedClient.mail}
               </Typography>
             </CardContent>
             <CardActions disableSpacing>
               <IconButton aria-label="add to favorites">
                 <EditIcon
                   onClick={() => {
-                    setClient(client);
+                    setClient(selectedClient);
                     setIsUpdate(true);
                     handleShow1();
                   }}
@@ -139,7 +159,7 @@ export default function ClientCard({
               >
                 <Modal.Header closeButton>
                   <div className="justify-content-center">
-                    <Modal.Title>Modifier un utilisateur</Modal.Title>
+                    <Modal.Title>Modifier un client</Modal.Title>
                   </div>
                 </Modal.Header>
                 <Modal.Body>
@@ -186,7 +206,7 @@ export default function ClientCard({
                           onChange={(event: any) => {
                             setClient({
                               ...client,
-                              client: event.target.value
+                              prenom: event.target.value
                             });
                           }}
                         />
@@ -216,6 +236,9 @@ export default function ClientCard({
                         />
                       </FormGroup>
                     </div>
+                    <div className=" bd-highlight mt-3">
+                      <Image setImage={setImage} images={imageclient} />
+                    </div>
                   </form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -231,7 +254,7 @@ export default function ClientCard({
                   <Button
                     type="button"
                     variant="contained"
-                    onClick={EditClient}
+                    onClick={RegisterClient}
                   >
                     Modifier
                   </Button>
@@ -253,10 +276,10 @@ export default function ClientCard({
                 keyboard={false}
               >
                 <Modal.Header closeButton>
-                  <Modal.Title>Supprimer un utilisateur</Modal.Title>
+                  <Modal.Title>Supprimer un client</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  Voulez-vous supprimer cet utilisateur avec cet email : "
+                  Voulez-vous supprimer ce client avec cet email : "
                   {client.mail}"
                 </Modal.Body>
                 <Modal.Footer>

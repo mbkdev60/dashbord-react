@@ -47,7 +47,7 @@ export default function ProduitCard({
           setIsUpdate(true);
         });
       Swal.fire({
-        title: 'Vous avez supprimer cet employé!',
+        title: 'Vous avez supprimer ce produit!',
         icon: 'error',
         confirmButtonText: 'Ok'
       });
@@ -72,7 +72,7 @@ export default function ProduitCard({
           .then((data) => {
             console.log(data);
             Swal.fire({
-              title: "l'employé est modifié !",
+              title: "Le produit est modifié !",
               icon: 'success',
               confirmButtonText: 'Ok'
             });
@@ -98,7 +98,7 @@ export default function ProduitCard({
   return (
     <div>
       <Card>
-        <CardHeader title="les informations de cet employé" />
+        <CardHeader title="Informations sur le produit" />
         <Divider />
         <CardContent>
           <Card sx={{ maxWidth: 345 }}>
@@ -115,7 +115,7 @@ export default function ProduitCard({
             <CardMedia
               sx={{
                 height: 0,
-                paddingTop: '56.25%' // 16:9
+                paddingTop: '90%' // 16:9
               }}
               image={Produit.image}
             />
@@ -148,7 +148,7 @@ export default function ProduitCard({
               >
                 <Modal.Header closeButton>
                   <div className="justify-content-center">
-                    <Modal.Title>Modifier un employé</Modal.Title>
+                    <Modal.Title>Modifier un produit</Modal.Title>
                   </div>
                 </Modal.Header>
                 <Modal.Body>
@@ -259,10 +259,10 @@ export default function ProduitCard({
                 keyboard={false}
               >
                 <Modal.Header closeButton>
-                  <Modal.Title>Supprimer un employé</Modal.Title>
+                  <Modal.Title>Supprimer un produit</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  Voulez-vous supprimer cet employé avec cet email : "
+                  Voulez-vous supprimer ce produit avec cet email : "
                   {Produit.nom}"
                 </Modal.Body>
                 <Modal.Footer>

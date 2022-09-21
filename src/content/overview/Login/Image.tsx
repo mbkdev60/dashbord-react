@@ -9,7 +9,7 @@ function Image({ setImage, images }: ImageProps) {
     setImage(e.target.files);
     setObject(URL.createObjectURL(e.target.files![0]));
   }
-  console.log(Object1, images);
+
   return (
     <div>
       {Object1 || images ? (

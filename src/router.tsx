@@ -31,9 +31,7 @@ const Overview = Loader(lazy(() => import('src/content/overview')));
 
 const Client = Loader(lazy(() => import('src/content/pages/Clients/index')));
 
-const Produits = Loader(
-  lazy(() => import('src/content/pages/Commandes/index'))
-);
+const Produits = Loader(lazy(() => import('src/content/pages/Produits/index')));
 
 const UserProfile = Loader(
   lazy(() => import('src/content/pages/Users/profile/index'))
