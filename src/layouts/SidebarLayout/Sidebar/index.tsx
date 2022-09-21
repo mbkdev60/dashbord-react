@@ -67,7 +67,7 @@ function Sidebar() {
                 <img
                   src={logo}
                   alt="Typescript"
-                  style={{ width: '13rem', height: '6rem' }}
+                  style={{ width: '9rem', height: '4rem' }}
                 />
               </div>
             </Box>

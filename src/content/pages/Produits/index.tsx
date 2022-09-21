@@ -9,7 +9,9 @@ import { Container, Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { Input } from 'reactstrap';
 import Modal from 'react-bootstrap/Modal';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+// import PersonAddIcon from '@mui/icons-material/PersonAdd';
+// import AddBoxIcon from '@mui/icons-material/AddBox';
+import AddchartIcon from '@mui/icons-material/Addchart';
 import Footer from 'src/components/Footer';
 import Image from '../../overview/Login/Image';
 import Swal from 'sweetalert2';
@@ -32,6 +34,7 @@ export default function DashboardCrypto() {
   const [prix, setPrix] = useState('');
   const [description, setDescription] = useState('');
   const [search, setSearch] = useState('');
+  
   let imageProfile = 'http://localhost:5003/images/product.png';
 
   async function listeproduits() {
@@ -70,7 +73,7 @@ export default function DashboardCrypto() {
         .then((response) => response.json())
         .then((data) => {
           Swal.fire({
-            title: ' Un nouveau employé ajouté',
+            title: ' Un nouveau produit ajouté',
             icon: 'success',
             confirmButtonText: 'Ok'
           });
@@ -80,7 +83,6 @@ export default function DashboardCrypto() {
     } else {
       Swal.fire(
         'Il est obligatoire de remplir tous les champs !',
-        "S'il vous plait les remplir !",
         'warning'
       );
     }
@@ -140,12 +142,12 @@ export default function DashboardCrypto() {
           onChange={handleSearchterm}
         />
         <div className="d-flex justify-content-end px-4">
-          <IconButton aria-label="add to favorites">
-            <PersonAddIcon
+          <IconButton aria-label="add to favorites" >
+            <AddchartIcon
               onClick={() => {
                 handleShow();
               }}
-              style={{ color: '#5f72ff' }}
+              style={{ color: '#5f72ff'}}
             />
           </IconButton>
           <Modal

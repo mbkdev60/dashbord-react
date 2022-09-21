@@ -40,15 +40,17 @@ export default function ClientCard({
         method: 'delete'
       })
         .then((response) => response.json())
-        .then((data) => {
-          handleClose();
-          setIsUpdate(true);
+        .then((data) => {Swal.fire({
+          title: 'Le client est supprimé !',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        }).then(function () {
+          window.location.reload();
         });
-      Swal.fire({
-        title: 'Vous avez supprimé ce client !',
-        icon: 'error',
-        confirmButtonText: 'Ok'
-      });
+          // handleClose();
+          // setIsUpdate(true);
+        });
+      
     } catch (error) {
       console.log(error);
     }

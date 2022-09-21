@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { FormGroup, Input, Label } from 'reactstrap';
-
+import Image from '../../overview/Login/Image';
 import { Card, CardHeader, CardContent, Divider, Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
@@ -24,15 +24,14 @@ export default function ProduitCard({
   selectedProduit,
   setIsUpdate
 }: usercardType) {
+  const [imageproduit, setImage] = useState(selectedProduit.img);
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
-
   const [Produit, setProduit] = useState(selectedProduit);
-
   var alphabetName = Produit.nom.slice(0, 1);
 
   async function deleteUser() {
@@ -55,13 +54,13 @@ export default function ProduitCard({
       console.log(error);
     }
   }
-  console.log(Produit);
+  // console.log(Produit);
 
   async function EditUser() {
     if (Produit) {
       try {
         await fetch(
-          `http://localhost:5003/updateproduct/${Produit.product_id}`,
+          `http://localhost:5003/updateproduct/${selectedProduit.product_id}`,
           {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
@@ -72,10 +71,12 @@ export default function ProduitCard({
           .then((data) => {
             console.log(data);
             Swal.fire({
-              title: "Le produit est modifié !",
+              title: 'Le produit est modifié !',
               icon: 'success',
               confirmButtonText: 'Ok'
-            });
+            }).then(function () {
+            window.location.reload();
+          });
             handleClose1();
             setIsUpdate(true);
           });
@@ -133,7 +134,7 @@ export default function ProduitCard({
               <IconButton aria-label="add to favorites">
                 <EditIcon
                   onClick={() => {
-                    setProduit(Produit);
+                    setProduit(selectedProduit);
                     setIsUpdate(true);
                     handleShow1();
                   }}
@@ -225,6 +226,9 @@ export default function ProduitCard({
                           }}
                         />
                       </FormGroup>
+                    </div>
+                    <div className=" bd-highlight mt-3">
+                      <Image setImage={setImage} images={imageproduit} />
                     </div>
                   </form>
                 </Modal.Body>

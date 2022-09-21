@@ -223,9 +223,9 @@ function Register() {
                         src={logo}
                         alt="Typescript"
                         style={{
-                          width: '12rem',
-                          height: '7rem',
-                          marginBottom: '40px',
+                          width: '10rem',
+                          height: '6rem',
+                          marginBottom: '22px',
                           backgroundColor: '#FFFFFF'
                         }}
                       />
