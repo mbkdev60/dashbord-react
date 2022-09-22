@@ -24,7 +24,7 @@ export default function ProduitCard({
   selectedProduit,
   setIsUpdate
 }: usercardType) {
-  const [imageproduit, setImage] = useState(selectedProduit.img);
+  const [imageproduit, setImage] = useState(selectedProduit.image);
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
   const handleClose = () => setShow(false);
@@ -32,63 +32,81 @@ export default function ProduitCard({
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
   const [Produit, setProduit] = useState(selectedProduit);
+  // const [images, setImages] = React.useState<string | Blob>();
   var alphabetName = Produit.nom.slice(0, 1);
 
   async function deleteUser() {
     try {
       await fetch(`http://localhost:5003/deleteproduct/${Produit.product_id}`, {
-        method: 'delete',
-        headers: { 'Content-Type': 'application/json' }
+        method: 'delete'
       })
         .then((response) => response.json())
         .then((data) => {
-          handleClose();
-          setIsUpdate(true);
+          Swal.fire({
+            title: 'Le produit est supprimé !',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          }).then(function () {
+            window.location.reload();
+          });
+          // handleClose();
+          // setIsUpdate(true);
         });
-      Swal.fire({
-        title: 'Vous avez supprimer ce produit!',
-        icon: 'error',
-        confirmButtonText: 'Ok'
-      });
     } catch (error) {
       console.log(error);
     }
   }
   // console.log(Produit);
-
-  async function EditUser() {
-    if (Produit) {
-      try {
-        await fetch(
-          `http://localhost:5003/updateproduct/${selectedProduit.product_id}`,
-          {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(Produit)
-          }
-        )
+  async function modifierProduct() {
+    try {
+      if (imageproduit !== Produit.image) {
+        var formData = new FormData();
+        let img: any = imageproduit;
+        for (const i of Object.keys(img)) {
+          formData.append('imgCollection', img[i as unknown as number]);
+        }
+        await fetch(`http://localhost:5003/uploadImage`, {
+          body: formData,
+          method: 'POST'
+        })
           .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            Swal.fire({
-              title: 'Le produit est modifié !',
-              icon: 'success',
-              confirmButtonText: 'Ok'
-            }).then(function () {
+          .then((data: any) => {
+            updateProduct(data);
+          });
+      } else {
+        updateProduct(imageproduit);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function updateProduct(imageProfile: any) {
+    try {
+      Produit.image = imageProfile;
+
+      await fetch(
+        `http://localhost:5003/updateproduct/${selectedProduit.product_id}`,
+        {
+          method: 'put',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Produit)
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          Swal.fire({
+            title: 'Le produit est modifié !',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          }).then(function () {
             window.location.reload();
           });
-            handleClose1();
-            setIsUpdate(true);
-          });
-      } catch (error) {
-        console.error(error);
-      }
-    } else {
-      Swal.fire({
-        title: 'Il faut modifier un champ!',
-        icon: 'success',
-        confirmButtonText: 'Ok'
-      });
+          // handleClose1();
+          // setIsUpdate(true);
+        });
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -242,7 +260,11 @@ export default function ProduitCard({
                   >
                     Annuler
                   </Button>
-                  <Button type="button" variant="contained" onClick={EditUser}>
+                  <Button
+                    type="button"
+                    variant="contained"
+                    onClick={modifierProduct}
+                  >
                     Modifier
                   </Button>
                 </Modal.Footer>
@@ -269,7 +291,7 @@ export default function ProduitCard({
                   Voulez-vous supprimer ce produit avec cet email : "
                   {Produit.nom}"
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer >
                   <Button
                     variant="contained"
                     type="button"

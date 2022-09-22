@@ -271,7 +271,7 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   onClick={closeSidebar}
-                  to="/dashboards/Historiques"
+                  to="/dashboards/Historique"
                   startIcon={<CameraAltIcon />}
                 >
                   Historique Commandes

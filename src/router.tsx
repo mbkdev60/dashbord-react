@@ -76,7 +76,7 @@ const routes: RouteObject[] = [
         element: <Produits />
       },
       {
-        path: 'Historiques',
+        path: 'Historique',
         element: <Historique />
       },
 

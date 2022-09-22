@@ -17,6 +17,7 @@ import Image from '../../overview/Login/Image';
 import Swal from 'sweetalert2';
 import ProduitCard from './ProduitCard';
 import './style.css';
+
 export default function DashboardCrypto() {
   const [imageproduit, setImage] = useState('');
   const [listproduit, setListproduit] = useState([]);
@@ -34,31 +35,29 @@ export default function DashboardCrypto() {
   const [prix, setPrix] = useState('');
   const [description, setDescription] = useState('');
   const [search, setSearch] = useState('');
-  
-  let imageProfile = 'http://localhost:5003/images/product.png';
+
+  let imageProfile = "http://localhost:5003/product.png";
 
   async function listeproduits() {
     try {
       await fetch(
         `http://localhost:5003/products/${localStorage.getItem('user_id')}`,
         {
-          method: 'get'
+          method: 'get',
+          headers: { 'Content-Type': 'application/json' }
         }
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setListproduit(data);
         });
     } catch (error) {
       console.log(error);
     }
   }
-  let re =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   function addproduit(image: string) {
-    if (prix && nom) {
+    if (prix && nom && description && image) {
       fetch(`http://localhost:5003/addproduct`, {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
@@ -73,22 +72,19 @@ export default function DashboardCrypto() {
         .then((response) => response.json())
         .then((data) => {
           Swal.fire({
-            title: ' Un nouveau produit ajouté',
+            title: 'Un nouveau produit a été ajouté',
             icon: 'success',
             confirmButtonText: 'Ok'
+          }).then(function () {
+            window.location.reload();
           });
-          setIsUpdate(true);
-          handleClose();
         });
     } else {
-      Swal.fire(
-        'Il est obligatoire de remplir tous les champs !',
-        'warning'
-      );
+      Swal.fire('Il est obligatoire de remplir tous les champs !', 'warning');
     }
   }
 
-  async function RegisterProduit() {
+  async function RegisterProduct() {
     try {
       if (imageproduit) {
         var formData = new FormData();
@@ -142,12 +138,12 @@ export default function DashboardCrypto() {
           onChange={handleSearchterm}
         />
         <div className="d-flex justify-content-end px-4">
-          <IconButton aria-label="add to favorites" >
+          <IconButton aria-label="add to favorites">
             <AddchartIcon
               onClick={() => {
                 handleShow();
               }}
-              style={{ color: '#5f72ff'}}
+              style={{ color: '#5f72ff' }}
             />
           </IconButton>
           <Modal
@@ -214,7 +210,7 @@ export default function DashboardCrypto() {
               <Button
                 type="button"
                 variant="contained"
-                onClick={RegisterProduit}
+                onClick={RegisterProduct}
               >
                 Ajouter
               </Button>

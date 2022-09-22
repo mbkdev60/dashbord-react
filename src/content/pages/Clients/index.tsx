@@ -38,7 +38,7 @@ export default function DashboardCrypto() {
   const [id, setId] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('user_id')))
   );
-  let imageProfile = 'http://localhost:5003/images/product.png';
+  let imageProfile = 'http://localhost:5003/product.png';
   /// get liste client
   async function getlisteclients() {
     try {
@@ -76,16 +76,18 @@ export default function DashboardCrypto() {
           .then((response) => response.json())
           .then((data) => {
             Swal.fire({
-              title: ' Un nouveau compte créé ',
+              title: ' Un nouveau compte a été créé ',
               icon: 'success',
               confirmButtonText: 'Ok'
+            }).then(function () {
+            window.location.reload();
             });
-            setIsUpdate(true);
-            handleClose();
+            // setIsUpdate(true);
+            // handleClose();
           });
       } else {
         Swal.fire({
-          title: ' Cet email est invalid !',
+          title: ' Cet email est invalide !',
           icon: 'warning',
           confirmButtonText: 'Ok'
         });
@@ -93,7 +95,6 @@ export default function DashboardCrypto() {
     } else {
       Swal.fire(
         'Il est obligatoire de remplir tous les champs !',
-        "S'il vous plait les remplir !",
         'warning'
       );
     }

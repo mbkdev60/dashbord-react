@@ -40,7 +40,9 @@ function PageHeader() {
         <Typography variant="h3" component="h3" gutterBottom>
           {user.name}
         </Typography>
-        <Typography variant="subtitle2">Voici la liste des employés</Typography>
+        <Typography variant="subtitle2">
+          Voici la liste des commandes
+        </Typography>
       </Grid>
     </Grid>
   );

@@ -106,16 +106,19 @@ export default function DashboardCrypto() {
       </div>
 
       <Container maxWidth="lg">
-        <div className="row">
-          <div className="col-8">
-            <div className="row">
+        <div className="row ">
+          <div className="col-8 ">
+            <div className="row ">
               {listproduits
                 .filter((val: any) => {
                   return val.nom.toLowerCase().includes(search.toLowerCase());
                 })
                 .map((produit: any, index: number) => {
                   return (
-                    <div className="col-sm mt-3" key={index}>
+                    <div
+                      className="col-sm mt-3 col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2"
+                      key={index}
+                    >
                       <ProduitCard
                         selectedProduit={produit}
                         setTotal={setTotal}
@@ -127,7 +130,7 @@ export default function DashboardCrypto() {
                 })}
             </div>
           </div>
-          <div className="col-4">
+          <div className="col-4 mt-3 ">
             {' '}
             {/* le 1/3 qui restait col-4 */}
             <PanierCommande
