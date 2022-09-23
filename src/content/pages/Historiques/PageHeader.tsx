@@ -11,7 +11,7 @@ function PageHeader() {
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid item>
         <Typography variant="h3" component="h3" gutterBottom>
-          Historiques Des Commandes
+          Historique Des Commandes
         </Typography>
       </Grid>
       <Grid item>

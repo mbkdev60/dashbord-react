@@ -40,17 +40,17 @@ export default function ClientCard({
         method: 'delete'
       })
         .then((response) => response.json())
-        .then((data) => {Swal.fire({
-          title: 'Le client est supprimé !',
-          icon: 'success',
-          confirmButtonText: 'Ok'
-        }).then(function () {
-          window.location.reload();
-        });
+        .then((data) => {
+          Swal.fire({
+            title: 'Le client est supprimé !',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          }).then(function () {
+            window.location.reload();
+          });
           // handleClose();
           // setIsUpdate(true);
         });
-      
     } catch (error) {
       console.log(error);
     }
@@ -209,6 +209,55 @@ export default function ClientCard({
                             setClient({
                               ...client,
                               prenom: event.target.value
+                            });
+                          }}
+                        />
+                      </FormGroup>
+                    </div>
+                    <div className=" bd-highlight">
+                      <FormGroup>
+                        <Label
+                          className="box1"
+                          for="exampleAdresse"
+                          style={{ color: '#070f1b' }}
+                        >
+                          Adresse
+                        </Label>
+                        <Input
+                          className="box"
+                          id="exampleAdresse"
+                          name="Adresse"
+                          placeholder="Adresse"
+                          value={client.add}
+                          onChange={(event: any) => {
+                            setClient({
+                              ...client,
+                              add: event.target.value
+                            });
+                          }}
+                        />
+                      </FormGroup>
+                    </div>
+                    <div className=" bd-highlight">
+                      <FormGroup>
+                        <Label
+                          className="box1"
+                          for="exampleTelephone"
+                          style={{ color: '#070f1b' }}
+                        >
+                          Téléphone
+                        </Label>
+                        <Input
+                          className="box"
+                          id="exampleTelephone"
+                          name="Telephone"
+                          placeholder="Telephone"
+                          value={client.tel}
+                          onChange={(event: any) => {
+                            console.log(event.target.value);
+                            setClient({
+                              ...client,
+                              tel: event.target.value
                             });
                           }}
                         />

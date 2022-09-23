@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 
 function PageHeader() {
-  const [update, setpdate] = useState(true);
+  const [update, setupdate] = useState(true);
   const [name, setName] = useState('');
   const [prenom, setPrenom] = useState('');
   const [picture, setPicture] = useState('');
   const user = {
-    name: prenom + '' + name,
+    name: prenom + ' ' + name,
     avatar: picture
   };
   const theme = useTheme();
@@ -19,7 +19,7 @@ function PageHeader() {
     setName(nameUser);
     setPrenom(prenomUser);
     setPicture(pictureUser);
-    setpdate(false);
+    setupdate(false);
   }, [name, prenom, update, picture]);
 
   return (
@@ -41,7 +41,7 @@ function PageHeader() {
           Bienvenue, {user.name}!
         </Typography>
         <Typography variant="subtitle2">
-          Aujourd'hui est un bon jour pour commencer le travail!
+          Voici la liste de vos clients!
         </Typography>
       </Grid>
     </Grid>

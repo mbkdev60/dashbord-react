@@ -173,7 +173,7 @@ function SidebarMenu() {
           component="div"
           subheader={
             <ListSubheader component="div" disableSticky>
-              crypto
+              Marketing 
             </ListSubheader>
           }
         >
@@ -185,9 +185,9 @@ function SidebarMenu() {
                   component={RouterLink}
                   onClick={closeSidebar}
                   to="/dashboards/crypto"
-                  startIcon={<GroupIcon />}
+                  startIcon={<FaIcons.FaChartLine />}
                 >
-                  crypto
+                  Marketing du contenu
                 </Button>
               </ListItem>
             </List>
@@ -210,7 +210,7 @@ function SidebarMenu() {
                   component={RouterLink}
                   onClick={closeSidebar}
                   to="/dashboards/clients"
-                  startIcon={<GroupIcon />}
+                  startIcon={<FaIcons.FaUsers />}
                 >
                   Gestion des clients
                 </Button>
@@ -235,7 +235,7 @@ function SidebarMenu() {
                   component={RouterLink}
                   onClick={closeSidebar}
                   to="/dashboards/produits"
-                  startIcon={<GroupIcon />}
+                  startIcon={<FaIcons.FaTasks />}
                 >
                   Gestion des Produits
                 </Button>
@@ -248,7 +248,7 @@ function SidebarMenu() {
           component="div"
           subheader={
             <ListSubheader component="div" disableSticky>
-              commandes
+              Commandes
             </ListSubheader>
           }
         >
@@ -260,9 +260,9 @@ function SidebarMenu() {
                   component={RouterLink}
                   onClick={closeSidebar}
                   to="/dashboards/Commandes"
-                  startIcon={<CameraAltIcon />}
+                  startIcon={<FaIcons.FaCartPlus />}
                 >
-                  commandes
+                  Commandes
                 </Button>
               </ListItem>
 
@@ -272,9 +272,9 @@ function SidebarMenu() {
                   component={RouterLink}
                   onClick={closeSidebar}
                   to="/dashboards/Historique"
-                  startIcon={<CameraAltIcon />}
+                  startIcon={<FaIcons.FaHistory />}
                 >
-                  Historique Commandes
+                  Historique des Commandes
                 </Button>
               </ListItem>
             </List>
@@ -284,7 +284,7 @@ function SidebarMenu() {
           component="div"
           subheader={
             <ListSubheader component="div" disableSticky>
-              Profile
+              Profils
             </ListSubheader>
           }
         >
@@ -298,7 +298,7 @@ function SidebarMenu() {
                   to="/dashboards/profile/details"
                   startIcon={<AccountCircleTwoToneIcon />}
                 >
-                  Profile
+                  Profils
                 </Button>
               </ListItem>
             </List>
@@ -312,9 +312,9 @@ function SidebarMenu() {
                   component={RouterLink}
                   onClick={closeSidebar}
                   to="/dashboards/profile/details"
-                  startIcon={<AccountCircleTwoToneIcon />}
+                  startIcon={<FaIcons.FaAddressCard />}
                 >
-                  contact
+                  Contact
                 </Button>
               </ListItem>
             </List>

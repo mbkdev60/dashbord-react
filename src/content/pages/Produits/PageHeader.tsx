@@ -8,7 +8,7 @@ function PageHeader() {
   const [prenom, setPrenom] = useState('');
   const [picture, setPicture] = useState('');
   const user = {
-    name: prenom + '' + name,
+    name: prenom + ' ' + name,
     avatar: picture
   };
   const theme = useTheme();
@@ -40,7 +40,7 @@ function PageHeader() {
         <Typography variant="h3" component="h3" gutterBottom>
           {user.name}
         </Typography>
-        <Typography variant="subtitle2">Voici la liste des employés</Typography>
+        <Typography variant="subtitle2">Voici la liste de vos produits</Typography>
       </Grid>
     </Grid>
   );

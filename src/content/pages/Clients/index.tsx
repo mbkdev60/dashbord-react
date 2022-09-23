@@ -15,6 +15,7 @@ import Image from '../../overview/Login/Image';
 import Swal from 'sweetalert2';
 import ClientCard from './ClientCard';
 import './style.css';
+import { SettingsCell, TempleHinduRounded } from '@mui/icons-material';
 
 export default function DashboardCrypto() {
   
@@ -26,14 +27,18 @@ export default function DashboardCrypto() {
     setNom('');
     setPassword('');
     setPrenom('');
+    setAdd('');
     setEmail('');
+    setTel('');
     setShow(false);
   };
   const handleShow = () => setShow(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [nom, setNom] = useState('');
+  const [tel, setTel] = useState('');
   const [prenom, setPrenom] = useState('');
+  const [add, setAdd] = useState('');
   const [search, setSearch] = useState('');
   const [id, setId] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('user_id')))
@@ -69,8 +74,8 @@ export default function DashboardCrypto() {
             nom: nom,
             prenom: prenom,
             mail: email,
-            add: '',
-            tel: 1234563
+            add: add,
+            tel: tel,
           })
         })
           .then((response) => response.json())
@@ -209,6 +214,33 @@ export default function DashboardCrypto() {
                     value={email}
                     onChange={(e: any) => {
                       setEmail(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className=" bd-highlight ">
+                  <TextField
+                    style={{ width: '370px' }}
+                    sx={{ mb: 1 }}
+                    id="outlined-add-input"
+                    label="Adresse"
+                    type="text"
+                    value={add}
+                    onChange={(e: any) => {
+                      setAdd(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className=" bd-highlight ">
+                  <TextField
+                    style={{ width: '370px' }}
+                    sx={{ mb: 1 }}
+                    id="outlined-tel-input"
+                    label="Téléphone"
+                    type="tel"
+                    value={tel}
+                    onChange={(e: any) => {
+                      
+                      setTel(e.target.value);
                     }}
                   />
                 </div>

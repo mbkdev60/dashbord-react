@@ -8,7 +8,7 @@ function PageHeader() {
   const [prenom, setPrenom] = useState('');
   const [picture, setPicture] = useState('');
   const user = {
-    name: prenom + '' + name,
+    name: prenom + ' ' + name,
     avatar: picture
   };
   const theme = useTheme();

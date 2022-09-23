@@ -33,6 +33,7 @@ export default function ProduitCard({
   const [Produit, setProduit] = useState(selectedProduit);
 
   var alphabetName = Produit.nom.slice(0, 1);
+  
   function setproduit(arg0: any) {
     throw new Error('Function not implemented.');
   }
