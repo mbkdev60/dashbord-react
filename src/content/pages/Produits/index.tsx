@@ -204,7 +204,7 @@ export default function DashboardCrypto() {
               </div>
             </Modal.Body>
             <Modal.Footer>
-              <Button type="button" variant="contained" onClick={handleClose}>
+              <Button type="button" variant="outlined" onClick={handleClose}>
                 Annuler
               </Button>
               <Button

@@ -11,6 +11,8 @@ type Modaltype = {
   idcommande: any;
   idclient: any;
   sctedetail: any;
+  datecommande: any;
+  totcommande: any;
 };
 
 function ModalDetail({
@@ -18,7 +20,9 @@ function ModalDetail({
   setShow,
   idcommande,
   idclient,
-  sctedetail
+  sctedetail,
+  datecommande,
+  totcommande
 }: Modaltype) {
   const [commande, setcommande] = useState<any>();
   const [client, setclient] = useState<any>([]);
@@ -163,8 +167,9 @@ function ModalDetail({
                   </div>
                 </div>
                 <div>
-                  <h6>Date : {client.nom}</h6>
+                  <h6>Date : {datecommande}</h6>
                   <h6>N° : {idcommande}</h6>
+                  <h6>TOTAL : {totcommande} €</h6>
                 </div>
               </div>
 

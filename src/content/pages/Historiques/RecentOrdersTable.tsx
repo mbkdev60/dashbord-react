@@ -68,6 +68,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
   const [show, setShow] = useState(false);
   const [idclient, setidclient] = useState(0);
   const [idcommande, setidcommande] = useState(0);
+  const [datecommande, setdatecommande] = useState();
+  const [totcommande, settotcommande] = useState();
   const [filters, setFilters] = useState<Filters>({
     nomclient: null
   });
@@ -199,6 +201,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
                         onClick={() => {
                           setidclient(cryptoOrder.client_id);
                           setidcommande(cryptoOrder.order_id);
+                          setdatecommande(cryptoOrder.dateorder);
+                          settotcommande(cryptoOrder.montanttotal);
                           setShow(true);
                         }}
                       >
@@ -223,13 +227,15 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
           />
         </Box>
       </Card>
-       <ModalDetail
+      <ModalDetail
         show={show}
         setShow={setShow}
         idcommande={idcommande}
         idclient={idclient}
         sctedetail={sctedetail}
-      /> 
+        datecommande={datecommande}
+        totcommande={totcommande}
+      />
     </>
   );
 };
