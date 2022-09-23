@@ -9,7 +9,7 @@ function Historiques() {
   return (
     <>
       <Helmet>
-        <title>Historique De Commandes</title>
+        <title>Historique Des Commandes</title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader />

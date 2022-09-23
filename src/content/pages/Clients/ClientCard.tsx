@@ -294,7 +294,7 @@ export default function ClientCard({
                 </Modal.Body>
                 <Modal.Footer>
                   <Button
-                    variant="contained"
+                    variant="outlined"
                     type="button"
                     onClick={() => {
                       handleClose1();

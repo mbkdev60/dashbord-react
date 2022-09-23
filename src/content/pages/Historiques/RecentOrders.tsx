@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 function RecentOrders() {
   const [listCommandes, setlistCommandes] = useState<any>();
   const [listclients, setlisteClients] = useState<any>([]);
+  const [sctedetail, setsctedetail] = useState<any>();
 
   async function listeproduits() {
     try {
@@ -52,15 +53,36 @@ function RecentOrders() {
       );
   }
 
+  function getsctedetails() {
+    fetch(
+      `http://localhost:5003/getsctedetails/${localStorage.getItem('user_id')}`,
+      {
+        method: 'GET'
+      }
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setsctedetail(result);
+        },
+
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
   useEffect(() => {
     listeproduits();
     getClients();
+    getsctedetails();
   }, []);
   return (
     <Card>
       <RecentOrdersTable
         cryptoOrders={listCommandes}
         statusOptions={listclients}
+        sctedetail={sctedetail}
       />
     </Card>
   );

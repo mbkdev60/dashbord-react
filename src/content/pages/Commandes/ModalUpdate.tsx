@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
+import Button from '@mui/material/Button/Button';
 import { Input } from 'reactstrap';
 
 type Modaltype = {
@@ -41,7 +42,7 @@ function ModalUpdate({
           <div className="d-flex justify-content-center">
             <div>
               <Button
-                variant="danger"
+                // variant="container"
                 onClick={() => {
                   if (counter > 0) setCounter(counter - 1);
                 }}
@@ -66,7 +67,7 @@ function ModalUpdate({
               />
             </div>
             <div>
-              <Button variant="success" onClick={() => setCounter(counter + 1)}>
+              <Button  onClick={() => setCounter(counter + 1)}>
                 {' '}
                 +{' '}
               </Button>
@@ -75,11 +76,11 @@ function ModalUpdate({
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="info" onClick={handleClose}>
+        <Button onClick={handleClose}>
           Fermer
         </Button>
         <Button
-          variant="warning"
+          // variant="container"
           onClick={() => {
             let value = product.nom;
             let add = false;

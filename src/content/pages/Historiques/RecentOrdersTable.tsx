@@ -2,10 +2,11 @@ import { FC, ChangeEvent, useState } from 'react';
 import { format } from 'date-fns';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+
 import {
   Divider,
   Box,
+  Button,
   FormControl,
   InputLabel,
   Card,
@@ -25,9 +26,9 @@ import {
 import { CryptoOrder } from 'src/models/crypto_order';
 import ModalDetail from './ModalDetail';
 interface RecentOrdersTableProps {
-  className?: string;
   cryptoOrders: any;
   statusOptions: any;
+  sctedetail: any;
 }
 
 interface Filters {
@@ -59,7 +60,8 @@ const applyPagination = (
 
 const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
   cryptoOrders,
-  statusOptions
+  statusOptions,
+  sctedetail
 }) => {
   const [page, setPage] = useState<number>(0);
   const [limit, setLimit] = useState<number>(5);
@@ -192,8 +194,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
                     </TableCell>
                     <TableCell>
                       <Button
-                        className="btntype"
-                        variant="contained"
+                        // className="btntype"
+                        variant="outlined"
                         onClick={() => {
                           setidclient(cryptoOrder.client_id);
                           setidcommande(cryptoOrder.order_id);
@@ -221,12 +223,13 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
           />
         </Box>
       </Card>
-      <ModalDetail
+       <ModalDetail
         show={show}
         setShow={setShow}
         idcommande={idcommande}
         idclient={idclient}
-      />
+        sctedetail={sctedetail}
+      /> 
     </>
   );
 };

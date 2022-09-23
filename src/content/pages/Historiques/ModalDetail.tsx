@@ -1,17 +1,25 @@
 import Button from '@mui/material/Button/Button';
 import { useEffect, useRef, useState } from 'react';
 
-//import ReactToPrint from 'react-to-print';
+import ReactToPrint from 'react-to-print';
 import Modal from 'react-bootstrap/Modal';
+import logo from '../../../images/logo.png';
 
 type Modaltype = {
   show: boolean;
   setShow: Function;
   idcommande: any;
   idclient: any;
+  sctedetail: any;
 };
 
-function ModalDetail({ show, setShow, idcommande, idclient }: Modaltype) {
+function ModalDetail({
+  show,
+  setShow,
+  idcommande,
+  idclient,
+  sctedetail
+}: Modaltype) {
   const [commande, setcommande] = useState<any>();
   const [client, setclient] = useState<any>([]);
 
@@ -57,15 +65,17 @@ function ModalDetail({ show, setShow, idcommande, idclient }: Modaltype) {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header>
-        <Modal.Title>
-          <h4 style={{ color: 'blue' }}>
-            Détail de la commande N° {idcommande}
-          </h4>
-          <h4>Nom : {client.nom}</h4>
-          <h4>Prenom : {client.prenom}</h4>
-          <h4>Addrese : {client.add}</h4>
-          <h4>Tel : {client.tel}</h4>
-          <h4>E-mail : {client.mail}</h4>
+        <Modal.Title className="d-flex justify-content-between">
+          <div style={{ width: '250px' }}>
+            <h6 style={{ color: 'blue' }}>
+              Détail de la commande N° {idcommande}
+            </h6>
+            <h6>Nom : {client.nom}</h6>
+            <h6>Prenom : {client.prenom}</h6>
+            <h6>Addrese : {client.add}</h6>
+            <h6>Tel : {client.tel}</h6>
+            <h6>E-mail : {client.mail}</h6>
+          </div>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -97,24 +107,68 @@ function ModalDetail({ show, setShow, idcommande, idclient }: Modaltype) {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleClose}>Fermer</Button>
-
-        {/* <ReactToPrint
+        <ReactToPrint
           trigger={() => <Button>Imprimer </Button>}
           content={() => componentRef.current}
         />
-        <div style={{ display: 'none' }}>
+
+        {/* style={{ display: 'none' }} */}
+        <div>
           <div ref={componentRef}>
             <div>
-              <Modal.Header>
-                <Modal.Title>
-                  <h5>Détail de la commande N° : {idcommande}</h5>
-                  <h5>Nom : {client.nom}</h5>
-                  <h5>Prenom : {client.prenom}</h5>
-                  <h5>Adresse : {client.add}</h5>
-                  <h5>Tel : {client.tel}</h5>
-                  <h5>E-mail : {client.mail}</h5>
-                </Modal.Title>
-              </Modal.Header>
+              <div
+                className="d-flex justify-content-center mt-5"
+                style={{ height: '50px' }}
+              >
+                <div>
+                  <h4>FACTURE </h4>
+                </div>
+              </div>
+
+              <div
+                className="d-flex justify-content-between d-flex align-items-center px-5"
+                style={{ height: '224px' }}
+              >
+                {sctedetail && (
+                  <div>
+                    <h6>Nom : {sctedetail.nom}</h6>
+                    <h6>Adresse : {sctedetail.add}</h6>
+                    <h6>Tel : {sctedetail.tel}</h6>
+                    <h6>E-mail : {sctedetail.mail}</h6>
+                    <h6>N° de Siret : {sctedetail.siret}</h6>
+                  </div>
+                )}
+                <div>
+                  <img
+                    src={logo}
+                    alt="Typescript"
+                    style={{
+                      width: '7rem',
+                      height: '4rem',
+                      marginLeft: '100px',
+                      color: '#1758e3'
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="d-flex justify-content-between d-flex align-items-center px-5">
+                <div>
+                  <div>
+                    <h6>Nom : {client.nom}</h6>
+                    <h6>Prenom : {client.prenom}</h6>
+                    <h6>Adresse : {client.add}</h6>
+                    <h6>Tel : {client.tel}</h6>
+                    <h6>E-mail : {client.mail}</h6>
+                  </div>
+                </div>
+                <div>
+                  <h6>Date : {client.nom}</h6>
+                  <h6>N° : {idcommande}</h6>
+                </div>
+              </div>
+
+              <div className="d-flex justify-content-between"></div>
               <Modal.Body>
                 <div className="d-flex justify-content-center">
                   <table className="table mt-5 text-center">
@@ -143,7 +197,7 @@ function ModalDetail({ show, setShow, idcommande, idclient }: Modaltype) {
               </Modal.Body>
             </div>
           </div>
-        </div> */}
+        </div>
       </Modal.Footer>
     </Modal>
   );
