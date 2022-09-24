@@ -173,7 +173,7 @@ function SidebarMenu() {
           component="div"
           subheader={
             <ListSubheader component="div" disableSticky>
-              Marketing 
+              Marketing
             </ListSubheader>
           }
         >
@@ -259,7 +259,7 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   onClick={closeSidebar}
-                  to="/dashboards/Commandes"
+                  to="/dashboards/commandes"
                   startIcon={<FaIcons.FaCartPlus />}
                 >
                   Commandes
@@ -271,7 +271,7 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   onClick={closeSidebar}
-                  to="/dashboards/Historique"
+                  to="/dashboards/historique"
                   startIcon={<FaIcons.FaHistory />}
                 >
                   Historique des Commandes
@@ -298,7 +298,7 @@ function SidebarMenu() {
                   to="/dashboards/profile/details"
                   startIcon={<AccountCircleTwoToneIcon />}
                 >
-                  Profils
+                  Profil
                 </Button>
               </ListItem>
             </List>
@@ -311,7 +311,7 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   onClick={closeSidebar}
-                  to="/dashboards/profile/details"
+                  to="/dashboards/profile/Contact"
                   startIcon={<FaIcons.FaAddressCard />}
                 >
                   Contact

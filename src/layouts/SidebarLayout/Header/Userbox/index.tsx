@@ -143,14 +143,14 @@ export default function HeaderUserbox() {
         <List sx={{ p: 1 }} component="nav">
           <ListItem button to="/dashboards/profile/details" component={NavLink}>
             <AccountBoxTwoToneIcon fontSize="small" />
-            <ListItemText primary="My Profile" />
+            <ListItemText primary="Mon Profil" />
           </ListItem>
         </List>
         <Divider />
         <Box sx={{ m: 1 }}>
           <Button color="primary" fullWidth onClick={LogOut}>
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
-            Sign out
+            Déconnexion
           </Button>
         </Box>
       </Popover>

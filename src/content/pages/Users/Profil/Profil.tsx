@@ -114,7 +114,7 @@ function Feed({ setpdate }: profiletype) {
 
   return (
     <Card style={{ width: '800px' }}>
-      <CardHeader title="Modifier le profile" />
+      <CardHeader title="Modifier le profil" />
       <Divider />
       <Box p={2} className="justify-content-center">
         <div className="d-flex flex-column bd-highlight  mb-3">

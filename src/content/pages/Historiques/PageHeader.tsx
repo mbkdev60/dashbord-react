@@ -10,15 +10,20 @@ function PageHeader() {
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid item>
-        <Typography variant="h3" component="h3" gutterBottom>
+        <Typography
+          variant="h3"
+          component="h3"
+          gutterBottom
+          style={{ color: 'blue' }}
+        >
           Historique Des Commandes
         </Typography>
       </Grid>
-      <Grid item>
+      {/* <Grid item>
         <Button sx={{ mt: { xs: 2, md: 0 } }} variant="outlined">
           Imprimer
         </Button>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }

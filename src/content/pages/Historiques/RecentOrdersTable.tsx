@@ -130,7 +130,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
               </FormControl>
             </Box>
           }
-          title="Recent Orders"
+          // style= {{ color: 'blue' }}
+          // title="COMMANDES RECENTES"
         />
 
         <Divider />

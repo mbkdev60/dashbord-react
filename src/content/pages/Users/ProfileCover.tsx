@@ -92,7 +92,7 @@ const ProfileCover = ({ user }) => {
             Profil de {user.name}
           </Typography>
           <Typography variant="subtitle2">
-            Votre page de profil c'est votre identité.
+            Cette page est destinée à un usage individuel (personnel) et non commercial ou promotionnel.
           </Typography>
         </Box>
       </Box>

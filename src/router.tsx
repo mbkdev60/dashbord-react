@@ -19,25 +19,21 @@ const Register = Loader(
   lazy(() => import('src/content/overview/Login/Register'))
 );
 
-const Personalise = Loader(
-  lazy(() => import('src/content/pages/Users/settings/Personalise'))
-);
-
 // Pages
 
 const Overview = Loader(lazy(() => import('src/content/overview')));
 
 // Dashboards
 
-const Client = Loader(lazy(() => import('src/content/pages/Clients/index')));
+const Clients = Loader(lazy(() => import('src/content/pages/Clients/index')));
 
 const Produits = Loader(lazy(() => import('src/content/pages/Produits/index')));
 
 const UserProfile = Loader(
-  lazy(() => import('src/content/pages/Users/profile/index'))
+  lazy(() => import('src/content/pages/Users/Profil/index'))
 );
-const UserSettings = Loader(
-  lazy(() => import('src/content/pages/Users/settings/index'))
+const UserContact = Loader(
+  lazy(() => import('src/content/pages/Users/Contact/index'))
 );
 
 // Commandes
@@ -68,7 +64,7 @@ const routes: RouteObject[] = [
       },
       {
         path: 'clients',
-        element: <Client />
+        element: <Clients />
       },
 
       {
@@ -76,12 +72,12 @@ const routes: RouteObject[] = [
         element: <Produits />
       },
       {
-        path: 'Historique',
+        path: 'historique',
         element: <Historique />
       },
 
       {
-        path: 'Commandes',
+        path: 'commandes',
         element: <Commandes />
       },
       {
@@ -96,8 +92,8 @@ const routes: RouteObject[] = [
             element: <UserProfile />
           },
           {
-            path: 'settings',
-            element: <UserSettings />
+            path: 'contact',
+            element: <UserContact />
           }
         ]
       }

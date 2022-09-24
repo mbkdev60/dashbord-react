@@ -3,21 +3,21 @@ import { Helmet } from 'react-helmet-async';
 import Footer from 'src/components/Footer';
 import { Grid, Container } from '@mui/material';
 
-import ProfileCover from './ProfileCover'; //Image
+import ProfileCover from '../ProfileCover'; //Image
 
-import Profile from './Profile'; //  profil données
-import PopularTags from './PopularTags'; // facebook .....
+import Profil from './Profil'; //  profil données
+import PopularTags from '../PopularTags'; // facebook .....
 
 function ManagementUserProfile() {
   const [update, setupdate] = useState(true);
   const [name, setName] = useState('');
   const [prenom, setPrenom] = useState('');
   const [picture, setPicture] = useState('');
-  const user = { 
+  const user = {
     name: prenom + ' ' + name,
     avatar: picture,
     coverImg: 'http://localhost:5003/logo2.png',
-    description: 'Bienvenue'+ " " + 'Mr(s)'+ " " + name,
+    description: 'Bienvenue' + ' ' + 'Mr(s)' + ' ' + name
   };
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function ManagementUserProfile() {
             <PopularTags />
           </Grid>
           <Grid item xs={12} md={12}>
-            <Profile setpdate={setupdate} />
+            <Profil setpdate={setupdate} />
           </Grid>
         </Grid>
       </Container>
