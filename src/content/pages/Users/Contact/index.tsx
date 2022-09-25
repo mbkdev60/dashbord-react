@@ -2,36 +2,37 @@ import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Footer from 'src/components/Footer';
 import { Grid, Container } from '@mui/material';
-import ProfileCover from '../ProfileCover'; //Image
+import ContactCover from './ContactCover'; //Image
 import Contact from './Contact'; //  profil données
 import PopularTags from '../PopularTags'; // facebook .....
 
 function ManagementUserProfile() {
-  const [update, setupdate] = useState(true);
-  const [name, setName] = useState('');
-  const [prenom, setPrenom] = useState('');
-  const [picture, setPicture] = useState('');
-  const user = {
-    name: prenom + ' ' + name,
-    avatar: picture,
-    coverImg: 'http://localhost:5003/logo2.png',
-    description: 'Bienvenue' + ' ' + 'Mr(s)' + ' ' + name
+ const [update, setpdate] = useState(true);
+  const [nomSte, setNomSte] = useState('');
+  // const [prenom, setPrenom] = useState('');
+  const [logo, setLogo] = useState('');
+  const contact = {
+    nom: nomSte,
+    avatar: logo,
+    coverImg: 'http://localhost:5003/dosthing.jpg',
+    description: 'Bienvenue' + ' ' + 'chez la société' + ' ' + nomSte
   };
 
   useEffect(() => {
-    let nameUser: any = localStorage.getItem('nom');
-    let prenomUser: any = localStorage.getItem('prenom');
-    let pictureUser: any = localStorage.getItem('image');
-    setName(nameUser);
-    setPrenom(prenomUser);
-    setPicture(pictureUser);
-    setupdate(false);
-  }, [name, prenom, update, picture]);
+    let nomSte: any = localStorage.getItem('nom');
+    // let prenomUser: any = localStorage.getItem('prenom');
+    let logoSte: any = localStorage.getItem('logo');
+    setNomSte(nomSte);
+    // setPrenom(prenomUser);
+    setLogo(logoSte);
+    setpdate(false);
+  }, [nomSte, update, logo]);
+  
 
   return (
     <>
       <Helmet>
-        <title> Paramètres du profil</title>
+        <title> Paramètres du contact</title>
       </Helmet>
       <Container sx={{ mt: 3 }} maxWidth="lg">
         <Grid
@@ -42,14 +43,14 @@ function ManagementUserProfile() {
           spacing={3}
         >
           <Grid item xs={12} md={8}>
-            <ProfileCover user={user} />
+            <ContactCover contact={contact} />
           </Grid>
 
           <Grid item xs={12} md={4}>
             <PopularTags />
           </Grid>
           <Grid item xs={12} md={12}>
-            <Contact setpdate={setupdate} />
+            <Contact setpdate={setpdate} />
           </Grid>
         </Grid>
       </Container>

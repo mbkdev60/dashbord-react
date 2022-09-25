@@ -7,19 +7,19 @@ import ProfileCover from '../ProfileCover'; //Image
 
 import Profil from './Profil'; //  profil données
 import PopularTags from '../PopularTags'; // facebook .....
+import { NoMeals } from '@mui/icons-material';
 
 function ManagementUserProfile() {
-  const [update, setupdate] = useState(true);
+  const [update, setpdate] = useState(true);
   const [name, setName] = useState('');
   const [prenom, setPrenom] = useState('');
   const [picture, setPicture] = useState('');
   const user = {
     name: prenom + ' ' + name,
     avatar: picture,
-    coverImg: 'http://localhost:5003/logo2.png',
+    coverImg: 'http://localhost:5003/dosthing.jpg',
     description: 'Bienvenue' + ' ' + 'Mr(s)' + ' ' + name
   };
-
   useEffect(() => {
     let nameUser: any = localStorage.getItem('nom');
     let prenomUser: any = localStorage.getItem('prenom');
@@ -27,7 +27,7 @@ function ManagementUserProfile() {
     setName(nameUser);
     setPrenom(prenomUser);
     setPicture(pictureUser);
-    setupdate(false);
+    setpdate(false);
   }, [name, prenom, update, picture]);
 
   return (
@@ -51,7 +51,7 @@ function ManagementUserProfile() {
             <PopularTags />
           </Grid>
           <Grid item xs={12} md={12}>
-            <Profil setpdate={setupdate} />
+            <Profil setpdate={setpdate} />
           </Grid>
         </Grid>
       </Container>

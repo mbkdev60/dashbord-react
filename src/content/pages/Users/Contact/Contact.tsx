@@ -12,46 +12,43 @@ import {
 import Swal from 'sweetalert2';
 import Image from '../../../overview/Login/Image';
 import TextField from '@mui/material/TextField';
-type profiletype = {
+
+type contacttype = {
   setpdate: Function;
 };
 
-function Feed({ setpdate }: profiletype) {
-  
+function Feed({ setpdate }: contacttype) {
   const [imageProfile, setImageProfile] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('image')))
   );
-  const [prenom, setPrenom] = useState(
-    JSON.parse(JSON.stringify(localStorage.getItem('prenom')))
-  );
-  const [nom, setNom] = useState(
+  const [nomSte, setNomSte] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('nom')))
   );
-  const [nom1, setNom1] = useState(
-    JSON.parse(JSON.stringify(localStorage.getItem('nom')))
+  const [add, setAdd] = useState(
+    JSON.parse(JSON.stringify(localStorage.getItem('add')))
   );
-  const [prenom1, setPrenom1] = useState(
-    JSON.parse(JSON.stringify(localStorage.getItem('nom')))
+  const [mail, setMail] = useState(
+    JSON.parse(JSON.stringify(localStorage.getItem('mail')))
   );
-  const [password, setpassword] = useState(
-    JSON.parse(JSON.stringify(localStorage.getItem('password')))
+  const [siret, setSiret] = useState(
+    JSON.parse(JSON.stringify(localStorage.getItem('siret')))
+  );
+   const [tel, setTel] = useState(
+     JSON.parse(JSON.stringify(localStorage.getItem('tel')))
   );
 
-  const [password1, setpassword1] = useState(
-    JSON.parse(JSON.stringify(localStorage.getItem('password')))
-  );
-
-  async function ModifierImageuser(image: any) {
-    if (nom1 != nom || prenom1 != prenom || password != password1) {
+  async function ModifierImageContact(image: any) {
+    if (nomSte && add && mail && tel && siret) {
       try {
-        await fetch(`http://localhost:5003/updateuser`, {
+        await fetch(`http://localhost:5003/updatesctedetails/user_id`, {
           method: 'put',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            nom: nom,
-            prenom: prenom,
-            img: image,
-            mdp: password,
+            nom: nomSte,
+            add: add,
+            tel: tel,
+            siret: siret,
+            logo: image,
             user_id: localStorage.getItem('user_id'),
             mail: localStorage.getItem('user')
           })
@@ -59,14 +56,21 @@ function Feed({ setpdate }: profiletype) {
           .then((response) => response.json())
           .then((data) => {
             localStorage.removeItem('image');
+            localStorage.removeItem('add');
             localStorage.removeItem('nom');
-            localStorage.removeItem('prenom');
+            localStorage.removeItem('mail');
+            localStorage.removeItem('siret');
+            localStorage.removeItem('tel');
+            localStorage.setItem('mail', mail);
+            localStorage.setItem('nom', nomSte);
+            localStorage.setItem('add', add);
+            localStorage.setItem('siret', siret);
+            localStorage.setItem('tel', tel);
             localStorage.setItem('image', image);
-            localStorage.setItem('nom', nom);
-            localStorage.setItem('prenom', prenom);
+
             setpdate(true);
             Swal.fire({
-              title: 'Votre profil est modifié!',
+              title: 'Votre contact est modifié!',
               icon: 'success',
               confirmButtonText: 'Ok'
             }).then(function () {
@@ -93,9 +97,9 @@ function Feed({ setpdate }: profiletype) {
         JSON.parse(JSON.stringify(localStorage.getItem('image')))
       ) {
         var formData = new FormData();
-        let img = imageProfile;
-        for (const i of Object.keys(img)) {
-          formData.append('imgCollection', img[i as unknown as number]);
+        let logo = imageProfile;
+        for (const i of Object.keys(logo)) {
+          formData.append('imgCollection', logo[i as unknown as number]);
         }
         await fetch(`http://localhost:5003/uploadImage`, {
           body: formData,
@@ -103,10 +107,10 @@ function Feed({ setpdate }: profiletype) {
         })
           .then((response) => response.json())
           .then((data) => {
-            ModifierImageuser(data);
+            ModifierImageContact(data);
           });
       } else {
-        ModifierImageuser(imageProfile);
+        ModifierImageContact(imageProfile);
       }
     } catch (error) {
       console.log(error);
@@ -115,7 +119,7 @@ function Feed({ setpdate }: profiletype) {
 
   return (
     <Card style={{ width: '800px' }}>
-      <CardHeader title="Modifier société" />
+      <CardHeader title="Modifier les coordonnées de votre société" />
       <Divider />
       <Box p={2} className="justify-content-center">
         <div className="d-flex flex-column bd-highlight  mb-3">
@@ -126,9 +130,9 @@ function Feed({ setpdate }: profiletype) {
               id="outlined-email-input"
               label="Nom"
               type="text"
-              value={nom}
+              value={nomSte}
               onChange={(e: any) => {
-                setNom(e.target.value);
+                setNomSte(e.target.value);
               }}
             />
           </div>
@@ -137,26 +141,51 @@ function Feed({ setpdate }: profiletype) {
               style={{ width: '450px' }}
               sx={{ my: 1 }}
               id="outlined-password-input"
-              label="Prenom"
+              label="Addresse"
               type="text"
-              value={prenom}
+              value={add}
               onChange={(e: any) => {
-                setPrenom(e.target.value);
+                setAdd(e.target.value);
               }}
             />
           </div>
-
           <div className=" bd-highlight mt-3 ">
             <TextField
               style={{ width: '450px' }}
               sx={{ my: 1 }}
               id="outlined-password-input"
-              label="Mot de passe"
-              type="password"
-              autoComplete="current-password"
-              value={password}
+              label="Téléphone"
+              type="text"
+              value={tel}
               onChange={(e: any) => {
-                setpassword(e.target.value);
+                setTel(e.target.value);
+              }}
+            />
+          </div>
+          <div className=" bd-highlight mt-3 ">
+            <TextField
+              style={{ width: '450px' }}
+              sx={{ my: 1 }}
+              id="outlined-password-input"
+              label="E-mail"
+              type="mail"
+              value={mail}
+              onChange={(e: any) => {
+                setMail(e.target.value);
+              }}
+            />
+          </div>
+          <div className=" bd-highlight mt-3 ">
+            <TextField
+              style={{ width: '450px' }}
+              sx={{ my: 1 }}
+              id="outlined-password-input"
+              label="N° de Siret"
+              type="text"
+              autoComplete="current-password"
+              value={siret}
+              onChange={(e: any) => {
+                setSiret(e.target.value);
               }}
             />
           </div>
