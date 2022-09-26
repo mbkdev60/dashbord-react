@@ -37,6 +37,28 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  async function Contact() {
+    try {
+      await fetch(
+        `http://localhost:5003/getsctedetails/${localStorage.getItem(
+          'user_id'
+        )}`
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          localStorage.setItem('nomscte', result.nom);
+          localStorage.setItem('addscte', result.add);
+          localStorage.setItem('siret', result.siret);
+          localStorage.setItem('logscte', result.logo);
+          localStorage.setItem('tel', result.tel);
+
+          navigate('dashboards/Clients');
+          window.location.reload();
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async function Connecter() {
     try {
       await fetch(`http://localhost:5003/getuser`, {
@@ -55,8 +77,9 @@ function Login() {
           localStorage.setItem('nom', result.nom);
           localStorage.setItem('image', result.img);
           localStorage.setItem('password', password);
-          navigate('dashboards/Clients');
-          window.location.reload();
+          Contact();
+          // navigate('dashboards/Clients');
+          // window.location.reload();
         });
     } catch (error) {
       console.log(error);

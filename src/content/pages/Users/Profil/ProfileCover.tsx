@@ -78,7 +78,7 @@ const CardCoverAction = styled(Box)(
 `
 );
 
-function ContactCover({ contact }) {
+const ProfileCover = ({ user }) => {
   return (
     <>
       <Box display="flex" mb={3}>
@@ -89,18 +89,18 @@ function ContactCover({ contact }) {
         </Tooltip> */}
         <Box>
           <Typography variant="h3" component="h3" gutterBottom>
-            Contact de la société {contact.nom}
+            Profil de {user.name}
           </Typography>
           <Typography variant="subtitle2">
-            Cette page est destinée à un usage professionnel.
+            Cette page est destinée à un usage individuel (personnel) et non commercial ou promotionnel.
           </Typography>
         </Box>
       </Box>
       <CardCover>
-        <CardMedia image={contact.coverImg} />
+        <CardMedia image={user.coverImg} />
       </CardCover>
       <AvatarWrapper>
-        <Avatar variant="rounded" alt={contact.nom} src={contact.avatar} />
+        <Avatar variant="rounded" alt={user.name} src={user.avatar} />
         <ButtonUploadWrapper>
           <Input
             accept="image/*"
@@ -112,16 +112,17 @@ function ContactCover({ contact }) {
       </AvatarWrapper>
       <Box py={2} pl={2} mb={3}>
         <Typography gutterBottom variant="h4">
-          {contact.nom}
+          {user.name}
         </Typography>
-        <Typography variant="subtitle2">{contact.description}</Typography>
+        <Typography variant="subtitle2">{user.description}</Typography>
       </Box>
     </>
   );
-}
-ContactCover.propTypes = {
-  // @ts-ignore
-  contact: PropTypes.object.isRequired
 };
 
-export default ContactCover;
+ProfileCover.propTypes = {
+  // @ts-ignore
+  user: PropTypes.object.isRequired
+};
+
+export default ProfileCover;

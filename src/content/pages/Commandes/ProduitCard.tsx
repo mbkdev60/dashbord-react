@@ -71,6 +71,7 @@ export default function ProduitCard({
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <Button
+              type="button"
               variant="outlined"
               onClick={() => {
                 setShow(true);

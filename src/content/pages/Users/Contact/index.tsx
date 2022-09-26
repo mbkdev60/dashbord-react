@@ -4,30 +4,26 @@ import Footer from 'src/components/Footer';
 import { Grid, Container } from '@mui/material';
 import ContactCover from './ContactCover'; //Image
 import Contact from './Contact'; //  profil données
-import PopularTags from '../PopularTags'; // facebook .....
+import PopularTags from './PopularTags'; // facebook .....
 
-function ManagementUserProfile() {
- const [update, setpdate] = useState(true);
-  const [nomSte, setNomSte] = useState('');
-  // const [prenom, setPrenom] = useState('');
+function ManagementUserContact() {
+  const [update, setpdate] = useState(true);
+  const [nom, setNom] = useState('');
   const [logo, setLogo] = useState('');
   const contact = {
-    nom: nomSte,
+    nom: nom,
     avatar: logo,
     coverImg: 'http://localhost:5003/dosthing.jpg',
-    description: 'Bienvenue' + ' ' + 'chez la société' + ' ' + nomSte
+    description: 'Bienvenue' + ' ' + 'chez la société' + ' ' + nom
   };
 
   useEffect(() => {
-    let nomSte: any = localStorage.getItem('nom');
-    // let prenomUser: any = localStorage.getItem('prenom');
-    let logoSte: any = localStorage.getItem('logo');
-    setNomSte(nomSte);
-    // setPrenom(prenomUser);
-    setLogo(logoSte);
+    let nom: any = localStorage.getItem('nomscte');
+    let logo: any = localStorage.getItem('logscte');
+    setNom(nom);
+    setLogo(logo);
     setpdate(false);
-  }, [nomSte, update, logo]);
-  
+  }, [nom, update, logo]);
 
   return (
     <>
@@ -59,4 +55,4 @@ function ManagementUserProfile() {
   );
 }
 
-export default ManagementUserProfile;
+export default ManagementUserContact;

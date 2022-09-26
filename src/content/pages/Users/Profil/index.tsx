@@ -2,12 +2,9 @@ import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Footer from 'src/components/Footer';
 import { Grid, Container } from '@mui/material';
-
-import ProfileCover from '../ProfileCover'; //Image
-
+import ProfileCover from './ProfileCover'; //Image
 import Profil from './Profil'; //  profil données
-import PopularTags from '../PopularTags'; // facebook .....
-import { NoMeals } from '@mui/icons-material';
+import PopularTags from './PopularTags'; // facebook .....
 
 function ManagementUserProfile() {
   const [update, setpdate] = useState(true);

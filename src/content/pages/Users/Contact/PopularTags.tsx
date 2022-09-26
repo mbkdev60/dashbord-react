@@ -10,10 +10,10 @@ import {
   Avatar,
   styled
 } from '@mui/material';
-import facebook from './Images/facebook.png';
-import instagram from './Images/instagram.jpg';
-import linkedIn from './Images/linkenIn.png';
-import Twitter from './Images/Twitter.png';
+import facebook from '../Images/facebook.png';
+import instagram from '../Images/instagram.jpg';
+import linkedIn from '../Images/linkenIn.png';
+import Twitter from '../Images/Twitter.png';
 const ListWrapper = styled(List)(
   () => `
       .MuiListItem-root {
@@ -35,7 +35,7 @@ function PopularTags() {
           Avenue Habib Bourguiba 04234,
           <span style={{ fontSize: '14px', color: '#0077b7' }}>
             {' '}
-             EL Golaa
+            EL Golaa
           </span>{' '}
         </div>
         <Divider />
