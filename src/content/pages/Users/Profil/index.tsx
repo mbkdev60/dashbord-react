@@ -5,7 +5,7 @@ import { Grid, Container } from '@mui/material';
 import ProfileCover from './ProfileCover'; //Image
 import Profil from './Profil'; //  profil données
 import PopularTags from './PopularTags'; // facebook .....
-
+ 
 function ManagementUserProfile() {
   const [update, setpdate] = useState(true);
   const [name, setName] = useState('');

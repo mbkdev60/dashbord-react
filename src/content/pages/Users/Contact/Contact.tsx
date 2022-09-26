@@ -19,11 +19,8 @@ type contacttype = {
 
 function Feed({ setpdate }: contacttype) {
   const [imageProfile, setImageProfile] = useState(
-    JSON.parse(JSON.stringify(localStorage.getItem('image')))
+    JSON.parse(JSON.stringify(localStorage.getItem('logoscte')))
   );
-  // const [logoContact, setLogoContact] = useState(
-  //   JSON.parse(JSON.stringify(localStorage.getItem('logo')))
-  // );
   const [nom, setNom] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('nomscte')))
   );
@@ -41,19 +38,25 @@ function Feed({ setpdate }: contacttype) {
   async function ModifierImageContact(image: any) {
     // if (nom && add && mail && tel && siret) {
     try {
-      await fetch(`http://localhost:5003/updatesctedetails`, {
-        method: 'put',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nom: nom,
-          add: add,
-          tel: tel,
-          siret: siret,
-          logo: image,
-          user_id: localStorage.getItem('user_id'),
-          mail: localStorage.getItem('user')
-        })
-      })
+      await fetch(
+        `http://localhost:5003/updatesctedetails/${localStorage.getItem(
+          'user_id'
+        )}
+        `,
+        {
+          method: 'put',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nom: nom,
+            add: add,
+            tel: tel,
+            siret: siret,
+            logo: image,
+            user_id: localStorage.getItem('user_id'),
+            mail: localStorage.getItem('user')
+          })
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           localStorage.removeItem('logoscte');
@@ -61,12 +64,11 @@ function Feed({ setpdate }: contacttype) {
           localStorage.removeItem('nomscte');
           localStorage.removeItem('tel');
           localStorage.removeItem('siret');
-          localStorage.setItem('logoscte', data.logoscte);
-          localStorage.setItem('nom', data.nom);
-          localStorage.setItem('addresse', data.addscte);
-          localStorage.setItem('siret', data.siret);
-          localStorage.setItem('tel', data.tel);
-          
+          localStorage.setItem('logoscte', image);
+          localStorage.setItem('nomscte', nom);
+          localStorage.setItem('addresse', add);
+          localStorage.setItem('siret', siret);
+          localStorage.setItem('tel', tel);
 
           setpdate(true);
           Swal.fire({
@@ -94,7 +96,7 @@ function Feed({ setpdate }: contacttype) {
     try {
       if (
         imageProfile !=
-        JSON.parse(JSON.stringify(localStorage.getItem('logscte')))
+        JSON.parse(JSON.stringify(localStorage.getItem('logoscte')))
       ) {
         var formData = new FormData();
         let img = imageProfile;
@@ -181,7 +183,7 @@ function Feed({ setpdate }: contacttype) {
             <Image setImage={setImageProfile} images={imageProfile} />
           </div>
           <div className=" bd-highlight  d-flex align-items-center justify-content-center mt-5">
-            <Button className=" " variant="contained" onClick={Modifier}>
+            <Button variant="contained" onClick={Modifier}>
               Modifier
             </Button>
           </div>

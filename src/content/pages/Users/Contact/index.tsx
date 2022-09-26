@@ -13,13 +13,13 @@ function ManagementUserContact() {
   const contact = {
     nom: nom,
     avatar: logo,
-    coverImg: 'http://localhost:5003/dosthing.jpg',
+    coverImg: 'http://localhost:5003/nasa.jpg',
     description: 'Bienvenue' + ' ' + 'chez la société' + ' ' + nom
   };
 
   useEffect(() => {
     let nom: any = localStorage.getItem('nomscte');
-    let logo: any = localStorage.getItem('logscte');
+    let logo: any = localStorage.getItem('logoscte');
     setNom(nom);
     setLogo(logo);
     setpdate(false);

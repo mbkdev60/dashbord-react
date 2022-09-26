@@ -88,8 +88,8 @@ function ContactCover({ contact }) {
           </IconButton>
         </Tooltip> */}
         <Box>
-          <Typography variant="h3" component="h3" gutterBottom>
-            Contact de la société {contact.nom}
+          <Typography variant="h3" component="h3" gutterBottom style={{color: "blue"}}>
+            Société {contact.nom}
           </Typography>
           <Typography variant="subtitle2">
             Cette page est destinée à un usage professionnel.

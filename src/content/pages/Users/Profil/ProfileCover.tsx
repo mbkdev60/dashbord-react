@@ -88,11 +88,17 @@ const ProfileCover = ({ user }) => {
           </IconButton>
         </Tooltip> */}
         <Box>
-          <Typography variant="h3" component="h3" gutterBottom>
+          <Typography
+            variant="h3"
+            component="h3"
+            gutterBottom
+            style={{ color: 'blue' }}
+          >
             Profil de {user.name}
           </Typography>
           <Typography variant="subtitle2">
-            Cette page est destinée à un usage individuel (personnel) et non commercial ou promotionnel.
+            Cette page est destinée à un usage individuel (personnel) et non
+            commercial ou promotionnel.
           </Typography>
         </Box>
       </Box>
