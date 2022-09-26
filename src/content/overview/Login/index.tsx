@@ -49,7 +49,7 @@ function Login() {
           localStorage.setItem('nomscte', result.nom);
           localStorage.setItem('addscte', result.add);
           localStorage.setItem('siret', result.siret);
-          localStorage.setItem('logscte', result.logo);
+          localStorage.setItem('logoscte', result.logo);
           localStorage.setItem('tel', result.tel);
 
           navigate('dashboards/Clients');
