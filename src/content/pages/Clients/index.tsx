@@ -18,7 +18,6 @@ import './style.css';
 import { SettingsCell, TempleHinduRounded } from '@mui/icons-material';
 
 export default function DashboardCrypto() {
-  
   const [imageclient, setImage] = useState('');
   const [listClients, setListClients] = useState([]);
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
@@ -75,20 +74,19 @@ export default function DashboardCrypto() {
             prenom: prenom,
             mail: email,
             add: add,
-            tel: tel,
+            tel: tel
           })
         })
           .then((response) => response.json())
           .then((data) => {
             Swal.fire({
-              title: ' Un nouveau compte a été créé ',
+              title: ' Un nouveau client a été ajouté ',
               icon: 'success',
               confirmButtonText: 'Ok'
             }).then(function () {
-            window.location.reload();
+              setIsUpdate(true);
+              handleClose();
             });
-            // setIsUpdate(true);
-            // handleClose();
           });
       } else {
         Swal.fire({
@@ -98,10 +96,7 @@ export default function DashboardCrypto() {
         });
       }
     } else {
-      Swal.fire(
-        'Il est obligatoire de remplir tous les champs !',
-        'warning'
-      );
+      Swal.fire('Il est obligatoire de remplir tous les champs !', 'warning');
     }
   }
 
@@ -239,7 +234,6 @@ export default function DashboardCrypto() {
                     type="tel"
                     value={tel}
                     onChange={(e: any) => {
-                      
                       setTel(e.target.value);
                     }}
                   />
@@ -281,22 +275,18 @@ export default function DashboardCrypto() {
 
       <Container maxWidth="lg">
         <div className="row">
-          {listClients
-            .filter((val: any) => {
-              return val.prenom.toLowerCase().includes(search.toLowerCase());
-            })
-            .map((client: any, index: number) => {
-              return (
-                <>
-                  <div className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2">
-                    <ClientCard
-                      selectedClient={client}
-                      setIsUpdate={setIsUpdate}
-                    />
-                  </div>
-                </>
-              );
-            })}
+          {listClients.map((client: any, index: number) => {
+            return (
+              <>
+                <div className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2">
+                  <ClientCard
+                    selectedClient={client}
+                    setIsUpdate={setIsUpdate}
+                  />
+                </div>
+              </>
+            );
+          })}
         </div>
       </Container>
       <Footer />

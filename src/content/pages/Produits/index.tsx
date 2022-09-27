@@ -76,7 +76,8 @@ export default function DashboardCrypto() {
             icon: 'success',
             confirmButtonText: 'Ok'
           }).then(function () {
-            window.location.reload();
+            setIsUpdate(true);
+            handleClose();
           });
         });
     } else {
@@ -221,11 +222,7 @@ export default function DashboardCrypto() {
 
       <Container maxWidth="lg">
         <div className="row">
-          {listproduit
-            .filter((val: any) => {
-              return val.nom.toLowerCase().includes(search.toLowerCase());
-            })
-            .map((produit: any, index: number) => {
+          {listproduit.map((produit: any, index: number) => {
               return (
                 <>
                   <div className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2">

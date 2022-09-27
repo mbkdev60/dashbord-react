@@ -47,13 +47,13 @@ function Facture({
             )}
             <div>
               <img
-                src={logo}
+                src={sctedetail.logo}
                 alt="Typescript"
                 style={{
-                  width: '7rem',
-                  height: '4rem',
+                  width: '10rem',
+                  height: '10rem',
                   marginLeft: '100px',
-                  color: '#1758e3'
+                  // color: '#1758e3'
                 }}
               />
             </div>

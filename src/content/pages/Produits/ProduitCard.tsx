@@ -43,14 +43,15 @@ export default function ProduitCard({
         .then((response) => response.json())
         .then((data) => {
           Swal.fire({
-            title: 'Le produit est supprimé !',
+            title: 'Le produit a été supprimé !',
             icon: 'success',
             confirmButtonText: 'Ok'
           }).then(function () {
-            window.location.reload();
+            setIsUpdate(true);
+            handleClose();
+            
           });
-          // handleClose();
-          // setIsUpdate(true);
+          
         });
     } catch (error) {
       console.log(error);
@@ -96,14 +97,14 @@ export default function ProduitCard({
         .then((response) => response.json())
         .then((data) => {
           Swal.fire({
-            title: 'Le produit est modifié !',
+            title: 'Le produit a été modifié !',
             icon: 'success',
             confirmButtonText: 'Ok'
           }).then(function () {
-            window.location.reload();
+            handleClose1();
+            setIsUpdate(true);
           });
-          // handleClose1();
-          // setIsUpdate(true);
+          
         });
     } catch (error) {
       console.error(error);
@@ -293,7 +294,7 @@ export default function ProduitCard({
                 </Modal.Body>
                 <Modal.Footer >
                   <Button
-                    variant="contained"
+                    variant="outlined"
                     type="button"
                     onClick={handleClose}
                   >

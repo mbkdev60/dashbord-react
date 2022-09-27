@@ -42,7 +42,7 @@ function ModalUpdate({
           <div className="d-flex justify-content-center">
             <div>
               <Button
-                // variant="container"
+                variant="outlined"
                 onClick={() => {
                   if (counter > 0) setCounter(counter - 1);
                 }}
@@ -67,7 +67,10 @@ function ModalUpdate({
               />
             </div>
             <div>
-              <Button  onClick={() => setCounter(counter + 1)}>
+              <Button
+                onClick={() => setCounter(counter + 1)}
+                variant="outlined"
+              >
                 {' '}
                 +{' '}
               </Button>
@@ -76,11 +79,11 @@ function ModalUpdate({
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleClose}>
+        <Button onClick={handleClose} variant="outlined">
           Fermer
         </Button>
         <Button
-          // variant="container"
+          variant="contained"
           onClick={() => {
             let value = product.nom;
             let add = false;

@@ -42,14 +42,13 @@ export default function ClientCard({
         .then((response) => response.json())
         .then((data) => {
           Swal.fire({
-            title: 'Le client est supprimé !',
+            title: 'Le client a été supprimé !',
             icon: 'success',
             confirmButtonText: 'Ok'
           }).then(function () {
-            window.location.reload();
-          });
-          // handleClose();
-          // setIsUpdate(true);
+            setIsUpdate(true);
+            handleClose();
+            });
         });
     } catch (error) {
       console.log(error);
@@ -95,11 +94,12 @@ export default function ClientCard({
         .then((response) => response.json())
         .then((data) => {
           Swal.fire({
-            title: 'Le client est mofifié !',
+            title: 'Le client a été mofifié !',
             icon: 'success',
             confirmButtonText: 'Ok'
           }).then(function () {
-            window.location.reload();
+            handleClose1();
+            setIsUpdate(true);
           });
         });
     } catch (error) {
@@ -335,7 +335,7 @@ export default function ClientCard({
                 </Modal.Body>
                 <Modal.Footer>
                   <Button
-                    variant="contained"
+                    variant="outlined"
                     type="button"
                     onClick={handleClose}
                   >
