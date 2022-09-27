@@ -29,7 +29,6 @@ export default function DashboardCrypto() {
   const [idClient, setidClient] = useState<any>();
   const [listeClients, setlisteClients] = useState<any>();
 
-  /////
 
   async function listeproduits() {
     try {
@@ -111,9 +110,9 @@ export default function DashboardCrypto() {
           <div className="col-8 ">
             <div className="row ">
               {listproduits
-                .filter((val: any) => {
-                  return val.nom.toLowerCase().includes(search.toLowerCase());
-                })
+                // .filter((val: any) => {
+                //   return val.nom.toLowerCase().includes(search.toLowerCase());
+                // })
                 .map((produit: any, index: number) => {
                   return (
                     <div

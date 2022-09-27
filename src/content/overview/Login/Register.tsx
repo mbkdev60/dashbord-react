@@ -3,7 +3,7 @@ import { Box, Button, Container, Grid, Typography, Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import logo from '../../../images/logo.png';
+import logo from '../../../images/BK STOCKS(2).png';
 import Image from './Image';
 import Swal from 'sweetalert2';
 import './style.css';
@@ -223,9 +223,9 @@ function Register() {
                         src={logo}
                         alt="Typescript"
                         style={{
-                          width: '10rem',
-                          height: '6rem',
-                          marginBottom: '22px',
+                          width: '20rem',
+                          height: '7rem',
+                          marginBottom: '50px',
                           backgroundColor: '#FFFFFF'
                         }}
                       />

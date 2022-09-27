@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import logo from '../../../images/bkstocks1.png';
+import logo from '../../../images/BK STOCKS(2).png';
 import Swal from 'sweetalert2';
 import './style.css';
 const TypographyH1 = styled(Typography)(
@@ -164,8 +164,8 @@ function Login() {
                   src={logo}
                   alt="Typescript"
                   style={{
-                    width: '27rem',
-                    height: '13rem',
+                    width: '20rem',
+                    height: '7rem',
                     marginBottom: '50px',
                     backgroundColor: '#FFFFFF'
                   }}

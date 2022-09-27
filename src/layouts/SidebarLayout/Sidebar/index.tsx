@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Scrollbar from 'src/components/Scrollbar';
 import { SidebarContext } from 'src/contexts/SidebarContext';
-import logo from '../../../images/bkstocks4.png';
+import logo from '../../../images/BK STOCKS(10).png';
 import {
   Box,
   Drawer,
@@ -67,7 +67,7 @@ function Sidebar() {
                 <img
                   src={logo}
                   alt="Typescript"
-                  style={{ marginRight:'4rem', width: '22rem', height: '9rem' }}
+                  style={{ marginTop:'-30px'  ,width: '20rem', height: '9rem' }}
                 />
               </div>
             </Box>
@@ -113,7 +113,7 @@ function Sidebar() {
                   width: 52
                 }}
               >
-                <img src={logo} style={{ margin: 'auto', width: '100px', height: '52px' }} />
+                <img src={logo} style={{ width: '20px', height: '20px' }} />
               </Box>
             </Box>
             <Divider

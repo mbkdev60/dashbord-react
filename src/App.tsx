@@ -13,6 +13,7 @@ import ThemeProvider from './theme/ThemeProvider';
 
 function App() {
   const [user, setuser] = useState('');
+  
   useEffect(() => {
     var email = localStorage.getItem('user');
     if (email) {

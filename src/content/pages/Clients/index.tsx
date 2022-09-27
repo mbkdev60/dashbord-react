@@ -24,7 +24,6 @@ export default function DashboardCrypto() {
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setNom('');
-    setPassword('');
     setPrenom('');
     setAdd('');
     setEmail('');
@@ -33,7 +32,6 @@ export default function DashboardCrypto() {
   };
   const handleShow = () => setShow(true);
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [nom, setNom] = useState('');
   const [tel, setTel] = useState('');
   const [prenom, setPrenom] = useState('');
@@ -62,7 +60,7 @@ export default function DashboardCrypto() {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   function Addclient(image: string) {
-    if (password && email && nom && prenom) {
+    if (email && nom && prenom) {
       if (re.test(email)) {
         fetch(`http://localhost:5003/addclient`, {
           method: 'post',
@@ -235,20 +233,6 @@ export default function DashboardCrypto() {
                     value={tel}
                     onChange={(e: any) => {
                       setTel(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className=" bd-highlight ">
-                  <TextField
-                    style={{ width: '370px' }}
-                    sx={{ mb: 1 }}
-                    id="outlined-password-input"
-                    label="Mot de passe"
-                    type="password"
-                    autoComplete="current-password"
-                    value={password}
-                    onChange={(e: any) => {
-                      setPassword(e.target.value);
                     }}
                   />
                 </div>
