@@ -37,7 +37,7 @@ function PageHeader() {
         />
       </Grid>
       <Grid item>
-        <Typography variant="h3" component="h3" gutterBottom>
+        <Typography variant="h3" component="h3" gutterBottom style={{color:"blue"}}>
           {user.name}
         </Typography>
         <Typography variant="subtitle2">
