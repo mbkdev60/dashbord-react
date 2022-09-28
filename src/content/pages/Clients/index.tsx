@@ -94,7 +94,11 @@ export default function DashboardCrypto() {
         });
       }
     } else {
-      Swal.fire('Il est obligatoire de remplir tous les champs !', 'warning');
+      Swal.fire({
+        title: 'Il est obligatoire de remplir tous les champs !',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      });
     }
   }
 

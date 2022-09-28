@@ -9,8 +9,6 @@ import { Container, Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { Input } from 'reactstrap';
 import Modal from 'react-bootstrap/Modal';
-// import PersonAddIcon from '@mui/icons-material/PersonAdd';
-// import AddBoxIcon from '@mui/icons-material/AddBox';
 import AddchartIcon from '@mui/icons-material/Addchart';
 import Footer from 'src/components/Footer';
 import Image from '../../overview/Login/Image';
@@ -81,7 +79,9 @@ export default function DashboardCrypto() {
           });
         });
     } else {
-      Swal.fire('Il est obligatoire de remplir tous les champs !', 'warning');
+      Swal.fire({title:'Il est obligatoire de remplir tous les champs !', 
+      icon:'warning',
+      confirmButtonText: 'OK'});
     }
   }
 
