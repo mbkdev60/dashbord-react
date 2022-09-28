@@ -46,11 +46,19 @@ function Login() {
       )
         .then((response) => response.json())
         .then((result) => {
-          localStorage.setItem('nomscte', result.nom);
-          localStorage.setItem('addscte', result.add);
-          localStorage.setItem('siret', result.siret);
-          localStorage.setItem('logoscte', result.logo);
-          localStorage.setItem('tel', result.tel);
+          if (result.nom) {
+            localStorage.setItem('nomscte', result.nom);
+            localStorage.setItem('addscte', result.add);
+            localStorage.setItem('siret', result.siret);
+            localStorage.setItem('logoscte', result.logo);
+            localStorage.setItem('tel', result.tel);
+          } else {
+            localStorage.setItem('nomscte', '');
+            localStorage.setItem('addscte', '');
+            localStorage.setItem('siret', '');
+            localStorage.setItem('logoscte', '');
+            localStorage.setItem('tel', '');
+          }
 
           navigate('dashboards/Clients');
           window.location.reload();
@@ -71,13 +79,22 @@ function Login() {
       })
         .then((response) => response.json())
         .then((result) => {
-          localStorage.setItem('user_id', result.user_id);
-          localStorage.setItem('user', email);
-          localStorage.setItem('prenom', result.prenom);
-          localStorage.setItem('nom', result.nom);
-          localStorage.setItem('image', result.img);
-          localStorage.setItem('password', password);
-          Contact();
+          if (result.user_id) {
+            localStorage.setItem('user_id', result.user_id);
+            localStorage.setItem('user', email);
+            localStorage.setItem('prenom', result.prenom);
+            localStorage.setItem('nom', result.nom);
+            localStorage.setItem('image', result.img);
+            localStorage.setItem('password', password);
+            Contact();
+          } else {
+            Swal.fire({
+              title: 'Veuillez vérifier vos identifiants!',
+              icon: 'error',
+              confirmButtonText: 'Ok'
+            });
+          }
+
           // navigate('dashboards/Clients');
           // window.location.reload();
         });

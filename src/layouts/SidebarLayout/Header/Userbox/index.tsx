@@ -83,7 +83,8 @@ export default function HeaderUserbox() {
     localStorage.removeItem('prenom');
     localStorage.removeItem('password');
     localStorage.removeItem('user');
-    localStorage.removeItem('user_id');
+    // localStorage.removeItem('user_id');
+    localStorage.setItem('user_id', '0');
     localStorage.removeItem('image');
     navigate('/');
     window.location.reload();
@@ -148,7 +149,7 @@ export default function HeaderUserbox() {
         </List>
         <Divider />
         <Box sx={{ m: 1 }}>
-          <Button variant='outlined' fullWidth onClick={LogOut}>
+          <Button variant="outlined" fullWidth onClick={LogOut}>
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             Déconnexion
           </Button>
