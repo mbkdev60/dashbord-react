@@ -148,7 +148,7 @@ export default function HeaderUserbox() {
         </List>
         <Divider />
         <Box sx={{ m: 1 }}>
-          <Button color="primary" fullWidth onClick={LogOut}>
+          <Button variant='outlined' fullWidth onClick={LogOut}>
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             Déconnexion
           </Button>
