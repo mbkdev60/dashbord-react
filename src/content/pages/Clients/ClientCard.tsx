@@ -48,7 +48,7 @@ export default function ClientCard({
           }).then(function () {
             setIsUpdate(true);
             handleClose();
-            });
+          });
         });
     } catch (error) {
       console.log(error);

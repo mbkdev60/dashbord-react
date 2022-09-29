@@ -34,7 +34,7 @@ export default function DashboardCrypto() {
   const [description, setDescription] = useState('');
   const [search, setSearch] = useState('');
 
-  let imageProfile = "http://localhost:5003/product.png";
+  let imageProfile = 'http://localhost:5003/product.png';
 
   async function listeproduits() {
     try {
@@ -69,19 +69,21 @@ export default function DashboardCrypto() {
       })
         .then((response) => response.json())
         .then((data) => {
+          setIsUpdate(true);
           Swal.fire({
             title: 'Un nouveau produit a été ajouté',
             icon: 'success',
             confirmButtonText: 'Ok'
           }).then(function () {
-            setIsUpdate(true);
             handleClose();
           });
         });
     } else {
-      Swal.fire({title:'Il est obligatoire de remplir tous les champs !', 
-      icon:'warning',
-      confirmButtonText: 'OK'});
+      Swal.fire({
+        title: 'Il est obligatoire de remplir tous les champs !',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      });
     }
   }
 
@@ -223,17 +225,17 @@ export default function DashboardCrypto() {
       <Container maxWidth="lg">
         <div className="row">
           {listproduit.map((produit: any, index: number) => {
-              return (
-                <>
-                  <div className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2">
-                    <ProduitCard
-                      selectedProduit={produit}
-                      setIsUpdate={setIsUpdate}
-                    />
-                  </div>
-                </>
-              );
-            })}
+            return (
+              <>
+                <div className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2">
+                  <ProduitCard
+                    selectedProduit={produit}
+                    setIsUpdate={setIsUpdate}
+                  />
+                </div>
+              </>
+            );
+          })}
         </div>
       </Container>
       <Footer />

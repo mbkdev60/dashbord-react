@@ -79,13 +79,17 @@ function Register() {
           });
       } else {
         Swal.fire({
-          title: ' Cet email est invalid !',
+          title: ' Cet email est invalide !',
           icon: 'error',
           confirmButtonText: 'Ok'
         });
       }
     } else {
-      Swal.fire('Il est obligatoire de remplir tous les champs !', 'warning');
+      Swal.fire({
+        title: 'Il est obligatoire de remplir tous les champs !',
+        icon: 'warning',
+        confirmButtonText: 'Ok'
+      });
     }
   }
   async function RegisterClient() {

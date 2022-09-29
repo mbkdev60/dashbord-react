@@ -34,62 +34,60 @@ function Feed({ setpdate }: contacttype) {
   const [tel, setTel] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('tel')))
   );
+  const [ajoute, setajoute] = useState(nom ? false : true);
 
-  async function ModifierImageContact(image: any) {
-    // if (nom && add && mail && tel && siret) {
+  async function ModifierImageContact(logo: any) {
+    //if (nom ) {
     try {
-      await fetch(
-        `http://localhost:5003/updatesctedetails/${localStorage.getItem(
-          'user_id'
-        )}
+      if (nom) {
+        await fetch(
+          `http://localhost:5003/updatesctedetails/${localStorage.getItem(
+            'user_id'
+          )}
         `,
-        {
-          method: 'put',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            nom: nom,
-            add: add,
-            tel: tel,
-            siret: siret,
-            logo: image,
-            user_id: localStorage.getItem('user_id'),
-            mail: localStorage.getItem('user')
-          })
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          localStorage.removeItem('logoscte');
-          localStorage.removeItem('addresse');
-          localStorage.removeItem('nomscte');
-          localStorage.removeItem('tel');
-          localStorage.removeItem('siret');
-          localStorage.setItem('logoscte', image);
-          localStorage.setItem('nomscte', nom);
-          localStorage.setItem('addresse', add);
-          localStorage.setItem('siret', siret);
-          localStorage.setItem('tel', tel);
-
-          setpdate(true);
-          Swal.fire({
-            title: 'Votre contact est modifié!',
-            icon: 'success',
-            confirmButtonText: 'Ok'
-          }).then(function () {
-            //pour refresh la commande
-            window.location.reload();
+          {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              nom: nom,
+              add: add,
+              tel: tel,
+              siret: siret,
+              logo: logo,
+              user_id: localStorage.getItem('user_id'),
+              mail: localStorage.getItem('user')
+            })
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            localStorage.removeItem('logoscte');
+            localStorage.removeItem('addscte');
+            localStorage.removeItem('nomscte');
+            localStorage.removeItem('tel');
+            localStorage.removeItem('siret');
+            localStorage.setItem('logoscte', logo);
+            localStorage.setItem('nomscte', nom);
+            localStorage.setItem('addscte', add);
+            localStorage.setItem('siret', siret);
+            localStorage.setItem('tel', tel);
+            setpdate(true);
+            Swal.fire({
+              title: 'Votre contact a été modifié!',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+            });
           });
+      } else {
+        Swal.fire({
+          title: 'Il est obligatoire de remplir tous les champs !',
+          icon: 'warning',
+          confirmButtonText: 'OK'
         });
+      }
     } catch (error) {
       console.error(error);
     }
-    // } else {
-    //   Swal.fire({
-    //     title: 'Il faut modifier au moins un champ !',
-    //     icon: 'error',
-    //     confirmButtonText: 'Ok'
-    //   });
-    // }
   }
 
   async function Modifier() {
@@ -118,6 +116,53 @@ function Feed({ setpdate }: contacttype) {
       console.log(error);
     }
   }
+  async function Ajouter() {
+    try {
+      if (nom && add && tel) {
+        await fetch(`http://localhost:5003/addsctedetails`, {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nom: nom,
+            add: add,
+            tel: tel,
+            siret: siret,
+            logo: imageProfile,
+            user_id: localStorage.getItem('user_id'),
+            mail: localStorage.getItem('user')
+          })
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            localStorage.removeItem('logoscte');
+            localStorage.removeItem('addscte');
+            localStorage.removeItem('nomscte');
+            localStorage.removeItem('tel');
+            localStorage.removeItem('siret');
+            localStorage.setItem('logoscte', imageProfile);
+            localStorage.setItem('nomscte', nom);
+            localStorage.setItem('addscte', add);
+            localStorage.setItem('siret', siret);
+            localStorage.setItem('tel', tel);
+            setpdate(true);
+            Swal.fire({
+              title: 'Votre contact a été  ajouté!',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+            });
+            setajoute(false);
+          });
+      } else {
+        Swal.fire({
+          title: 'Il est obligatoire de remplir tous les champs !',
+          icon: 'warning',
+          confirmButtonText: 'Ok'
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <Card style={{ width: '800px' }}>
@@ -130,7 +175,7 @@ function Feed({ setpdate }: contacttype) {
               style={{ width: '450px' }}
               sx={{ mt: 6, mb: 1 }}
               id="outlined-email-input"
-              label="Nom"
+              label="Nom *"
               type="text"
               value={nom}
               onChange={(e: any) => {
@@ -183,8 +228,14 @@ function Feed({ setpdate }: contacttype) {
             <Image setImage={setImageProfile} images={imageProfile} />
           </div>
           <div className=" bd-highlight  d-flex align-items-center justify-content-center mt-5">
-            <Button variant="contained" onClick={Modifier}>
-              Modifier
+            <Button
+              variant="contained"
+              onClick={(e) => {
+                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                ajoute ? Ajouter() : Modifier();
+              }}
+            >
+              {ajoute ? 'Ajouter' : 'Modifier'}
             </Button>
           </div>
         </div>

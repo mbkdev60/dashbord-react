@@ -25,7 +25,7 @@ function ManagementUserProfile() {
     setPrenom(prenomUser);
     setPicture(pictureUser);
     setpdate(false);
-  }, [name, prenom, update, picture]);
+  }, [update]);
 
   return (
     <>

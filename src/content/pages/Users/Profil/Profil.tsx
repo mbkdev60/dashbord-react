@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import {
   Box,
   Typography,
@@ -12,12 +12,14 @@ import {
 import Swal from 'sweetalert2';
 import Image from '../../../overview/Login/Image';
 import TextField from '@mui/material/TextField';
+import { useNavigate } from 'react-router';
 
 type profiletype = {
   setpdate: Function;
 };
 
 function Feed({ setpdate }: profiletype) {
+  const navigate = useNavigate();
   const [imageProfile, setImageProfile] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('image')))
   );
@@ -71,7 +73,8 @@ function Feed({ setpdate }: profiletype) {
               confirmButtonText: 'Ok'
             }).then(function () {
               //pour refresh la commande
-              window.location.reload();
+
+              navigate('/dashboards/profile/details');
             });
           });
       } catch (error) {

@@ -24,9 +24,9 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
                 theme.palette.mode === 'dark'
                   ? theme.colors.alpha.trueWhite[5]
                   : theme.colors.alpha.white[50],
-              marginBottom: `${theme.spacing(4)}`,
-              boxShadow:
-                theme.palette.mode === 'dark'
+                   marginBottom: `${theme.spacing(4)}`,
+                   boxShadow:
+                    theme.palette.mode === 'dark'
                   ? `0 1px 0 ${alpha(
                       lighten(theme.colors.primary.main, 0.7),
                       0.15

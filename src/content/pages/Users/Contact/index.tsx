@@ -23,7 +23,7 @@ function ManagementUserContact() {
     setNom(nom);
     setLogo(logo);
     setpdate(false);
-  }, [nom, update, logo]);
+  }, [update]);
 
   return (
     <>
