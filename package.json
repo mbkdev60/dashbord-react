@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
+    "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "5.8.2",
     "@mui/lab": "5.0.0-alpha.84",
     "@mui/material": "5.8.2",
@@ -45,6 +46,7 @@
     "react-switch": "^7.0.0",
     "react-to-print": "^2.14.7",
     "reactstrap": "^9.1.1",
+    "shortid": "^2.2.16",
     "stylis": "4.1.1",
     "stylis-plugin-rtl": "2.1.1",
     "sweetalert2": "^11.4.21",

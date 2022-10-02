@@ -1,38 +1,35 @@
 import { Helmet } from 'react-helmet-async';
 import PageHeader from './PageHeader';
-import TextField from '@mui/material/TextField';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
-import { styled } from '@mui/material/styles';
-
 import { useEffect, useState } from 'react';
-import { Container, Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import { Input } from 'reactstrap';
-import Modal from 'react-bootstrap/Modal';
+import { Container, Input } from 'reactstrap';
 import AddchartIcon from '@mui/icons-material/Addchart';
 import Footer from 'src/components/Footer';
-import Image from '../../overview/Login/Image';
-import Swal from 'sweetalert2';
-import ProduitCard from './ProduitCard';
+import { Card, CardHeader, CardContent, Divider } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
+import CardMedia from '@mui/material/CardMedia';
+import CardActions from '@mui/material/CardActions';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 import './style.css';
+import Modifierproduit from './Modifierproduit';
+import Addproduit from './Addproduit';
+import Deleteproduit from './Deleteproduit';
 
 export default function DashboardCrypto() {
-  const [imageproduit, setImage] = useState('');
   const [listproduit, setListproduit] = useState([]);
+  const [selectedProduit, setselectedProduit] = useState<any>();
+
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
-  const [show, setShow] = useState(false);
-  const handleClose = () => {
-    setNom('');
-    setPrix('');
-    setImage('');
-    setDescription('');
-    setShow(false);
-  };
-  const handleShow = () => setShow(true);
-  const [nom, setNom] = useState('');
-  const [prix, setPrix] = useState('');
-  const [description, setDescription] = useState('');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState<any>('');
+
+  const [showadd, setShowadd] = useState(false);
+  const [showdelete, setShowdelete] = useState(false);
+  const [showupdate, setShowupdate] = useState(false);
 
   let imageProfile = 'http://localhost:5003/product.png';
 
@@ -54,66 +51,9 @@ export default function DashboardCrypto() {
     }
   }
 
-  function addproduit(image: string) {
-    if (prix && nom && description && image) {
-      fetch(`http://localhost:5003/addproduct`, {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nom: nom,
-          description: description,
-          image: image,
-          user_id: localStorage.getItem('user_id'),
-          prix: prix
-        })
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setIsUpdate(true);
-          Swal.fire({
-            title: 'Un nouveau produit a été ajouté',
-            icon: 'success',
-            confirmButtonText: 'Ok'
-          }).then(function () {
-            handleClose();
-          });
-        });
-    } else {
-      Swal.fire({
-        title: 'Il est obligatoire de remplir tous les champs !',
-        icon: 'warning',
-        confirmButtonText: 'OK'
-      });
-    }
-  }
-
-  async function RegisterProduct() {
-    try {
-      if (imageproduit) {
-        var formData = new FormData();
-        let img = imageproduit;
-        for (const i of Object.keys(img)) {
-          formData.append('imgCollection', img[i as unknown as number]);
-        }
-        await fetch(`http://localhost:5003/uploadImage`, {
-          body: formData,
-          method: 'POST'
-        })
-          .then((response) => response.json())
-          .then((data: any) => {
-            addproduit(data);
-          });
-      } else {
-        addproduit(imageProfile);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const handleSearchterm = (e: any) => {
-    let value = e.target.value;
-    setSearch(value);
+    setSearch(e.target.value);
+    console.log(search);
   };
 
   useEffect(() => {
@@ -138,105 +78,115 @@ export default function DashboardCrypto() {
           name="searchBar"
           id="searchBar"
           placeholder="Rechercher..."
-          onChange={handleSearchterm}
+          onChange={(e) => {
+            handleSearchterm(e);
+          }}
         />
         <div className="d-flex justify-content-end px-4">
           <IconButton aria-label="add to favorites">
             <AddchartIcon
               onClick={() => {
-                handleShow();
+                setShowadd(true);
               }}
               style={{ color: '#5f72ff' }}
             />
           </IconButton>
-          <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Ajouter un produit</Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="d-flex justify-content-center">
-              <div className="d-flex flex-column bd-highlight ">
-                <div className=" bd-highlight ">
-                  <TextField
-                    style={{ width: '370px' }}
-                    sx={{ mt: 6, mb: 1 }}
-                    id="outlined-nom-input"
-                    label="Nom"
-                    type="text"
-                    value={nom}
-                    onChange={(e: any) => {
-                      setNom(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className=" bd-highlight ">
-                  <TextField
-                    style={{ width: '370px' }}
-                    sx={{ mb: 1 }}
-                    id="outlined-prenom-input"
-                    label="prix"
-                    type="text"
-                    value={prix}
-                    onChange={(e: any) => {
-                      setPrix(e.target.value);
-                    }}
-                  />
-                </div>
-
-                <div className=" bd-highlight ">
-                  <TextField
-                    style={{ width: '370px' }}
-                    sx={{ mb: 1 }}
-                    id="outlined-description-input"
-                    label="Description"
-                    type="description"
-                    autoComplete="current-description"
-                    value={description}
-                    onChange={(e: any) => {
-                      setDescription(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className=" bd-highlight mt-3">
-                  <Image setImage={setImage} />
-                </div>
-              </div>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button type="button" variant="outlined" onClick={handleClose}>
-                Annuler
-              </Button>
-              <Button
-                type="button"
-                variant="contained"
-                onClick={RegisterProduct}
-              >
-                Ajouter
-              </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
       </div>
 
       <Container maxWidth="lg">
         <div className="row">
-          {listproduit.map((produit: any, index: number) => {
-            return (
-              <>
-                <div className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2">
-                  <ProduitCard
-                    selectedProduit={produit}
-                    setIsUpdate={setIsUpdate}
-                  />
-                </div>
-              </>
-            );
-          })}
+          {listproduit
+            .filter((val: any) => {
+              return val.nom.toLowerCase().includes(search.toLowerCase());
+            })
+            .map((Produit: any, index: number) => {
+              return (
+                <>
+                  <div className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2">
+                    <Card key={index}>
+                      <CardHeader title="Fiche Produit" />
+                      <Divider />
+                      <CardContent>
+                        <Card sx={{ maxWidth: 345 }}>
+                          <CardHeader
+                            avatar={
+                              <Avatar aria-label="recipe">
+                                {' '}
+                                {Produit.nom.slice(0, 1)}
+                              </Avatar>
+                            }
+                            action={
+                              <IconButton aria-label="settings">
+                                <MoreVertIcon />
+                              </IconButton>
+                            }
+                            title={Produit.nom}
+                            subheader={Produit.prix + ' €'}
+                          />
+                          <CardMedia
+                            sx={{
+                              height: 0,
+                              paddingTop: '100%' // 16:9
+                            }}
+                            image={Produit.image}
+                          />
+                          <CardContent>
+                            <Typography variant="body2" color="text.secondary">
+                              Prix {''}: {''}
+                              {Produit.prix + ' €'}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              Description {''}: {''}
+                              {Produit.description}
+                            </Typography>
+                          </CardContent>
+                          <CardActions disableSpacing>
+                            <IconButton aria-label="add to favorites">
+                              <EditIcon
+                                onClick={() => {
+                                  setShowupdate(true);
+                                  setselectedProduit(Produit);
+                                }}
+                                style={{ color: '#5f72ff' }}
+                              />
+                            </IconButton>
+
+                            <IconButton aria-label="share">
+                              <DeleteIcon
+                                onClick={() => {
+                                  setShowdelete(true);
+                                  setselectedProduit(Produit);
+                                }}
+                                style={{ color: '#5f72ff' }}
+                              />
+                            </IconButton>
+                          </CardActions>
+                        </Card>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </>
+              );
+            })}
         </div>
+        <Modifierproduit
+          selectedProduit={selectedProduit}
+          show={showupdate}
+          setShow={setShowupdate}
+          setIsUpdate={setIsUpdate}
+        />
+        <Addproduit
+          show={showadd}
+          setShow={setShowadd}
+          setIsUpdate={setIsUpdate}
+        />
+        <Deleteproduit
+          Produit={selectedProduit}
+          show={showdelete}
+          setShow={setShowdelete}
+          setIsUpdate={setIsUpdate}
+        />
       </Container>
       <Footer />
     </>

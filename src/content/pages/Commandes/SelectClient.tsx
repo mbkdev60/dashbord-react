@@ -15,7 +15,7 @@ function SelectClient({
   listeClients
 }: SelectClienttype) {
   return (
-    <div style={{ width: '19rem' }}>
+    <div style={{ width: '17rem' }}>
       <Select
         defaultValue={selectedOption}
         onChange={(e: any) => {

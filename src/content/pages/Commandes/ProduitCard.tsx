@@ -54,7 +54,7 @@ export default function ProduitCard({
         <CardMedia
           sx={{
             height: 0,
-            paddingTop: '56.25%' // 16:9
+            paddingTop: '120.00%' // 16:9
           }}
           image={Produit.image}
         />
