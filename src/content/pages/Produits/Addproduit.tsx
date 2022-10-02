@@ -17,7 +17,7 @@ function Addproduit({ show, setShow, setIsUpdate }: deleteproduit) {
   const [description, setDescription] = useState('');
   const [imageproduit, setImage] = useState('');
 
-  let imageProfile = 'http://localhost:5003/product.png';
+  let imageProfile = '${process.env.REACT_APP_API_URL}/product.png';
 
   const handleClose = () => {
     setNom('');
@@ -29,7 +29,7 @@ function Addproduit({ show, setShow, setIsUpdate }: deleteproduit) {
 
   function addproduit(image: string) {
     if (prix && nom && description && image) {
-      fetch(`http://localhost:5003/addproduct`, {
+      fetch(`${process.env.REACT_APP_API_URL}/addproduct`, {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -68,7 +68,7 @@ function Addproduit({ show, setShow, setIsUpdate }: deleteproduit) {
         for (const i of Object.keys(img)) {
           formData.append('imgCollection', img[i as unknown as number]);
         }
-        await fetch(`http://localhost:5003/uploadImage`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/uploadImage`, {
           body: formData,
           method: 'POST'
         })

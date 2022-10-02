@@ -1,10 +1,16 @@
-import { Box, Button, Container, Grid, IconButton, InputAdornment, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  InputAdornment,
+  Typography
+} from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-// import Visibility from '@material-ui/icons/Visibility';
-// import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import logo from '../../../images/BK STOCKS(2).png';
 import Swal from 'sweetalert2';
 import './style.css';
@@ -38,28 +44,11 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [Visibility, VisibilityOff] = useState('');
-  // const [values, setValues] = useState({
-  //   password: '',
-  //   showPassword: false
-  // });
-
-  // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
-  // };
-
-  // const handleMouseDownPassword = (e) => {
-  //   e.preventDefault();
-  // };
-
-  // const handlePasswordChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
 
   async function Contact() {
     try {
       await fetch(
-        `http://localhost:5003/getsctedetails/${localStorage.getItem(
+        `${process.env.REACT_APP_API_URL}/getsctedetails/${localStorage.getItem(
           'user_id'
         )}`
       )
@@ -88,7 +77,7 @@ function Login() {
   }
   async function Connecter() {
     try {
-      await fetch(`http://localhost:5003/getuser`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/getuser`, {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -113,9 +102,6 @@ function Login() {
               confirmButtonText: 'Ok'
             });
           }
-
-          // navigate('dashboards/Clients');
-          // window.location.reload();
         });
     } catch (error) {
       console.log(error);
@@ -130,7 +116,7 @@ function Login() {
         container
       >
         <Grid item md={10} lg={8} xl={12} mx="auto">
-          <TypographyH1 sx={{ mb: 2 }} variant="h1">
+          <TypographyH1 className="title-cl" sx={{ mb: 2 }} variant="h1">
             Connectez Vous
           </TypographyH1>
           <div className="d-flex flex-column bd-highlight mb-3">
@@ -156,25 +142,6 @@ function Login() {
                 autoComplete="current-password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                // InputProps={{
-                // startAdornment:(
-                //   <InputAdornment position="start">
-                //   type={values.showPassword ? "text" : "password"}
-                //   onChange={handlePasswordChange("password")}
-                //   value={values.password}
-                //   </InputAdornment>
-                // ),
-                // endAdornment:(
-                //   <InputAdornment position="end">
-                //     <IconButton
-                //       onClick={handleClickShowPassword}
-                //       onMouseDown={handleMouseDownPassword}
-                //     >
-                //       {values.showPassword ? {Visibility} : {VisibilityOff}}
-                //     </IconButton>
-                //   </InputAdornment>
-                //   )
-                // }}
               />
             </div>
             <div className=" bd-highlight ">

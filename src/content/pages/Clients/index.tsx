@@ -46,11 +46,11 @@ export default function DashboardCrypto() {
   const [id, setId] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('user_id')))
   );
-  let imageProfile = 'http://localhost:5003/product.png';
+  let imageProfile = '${process.env.REACT_APP_API_URL}/product.png';
   /// get liste client
   async function getlisteclients() {
     try {
-      await fetch(`http://localhost:5003/clients/${id}`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/clients/${id}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       })

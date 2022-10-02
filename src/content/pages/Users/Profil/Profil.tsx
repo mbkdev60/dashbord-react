@@ -46,7 +46,7 @@ function Feed({ setpdate }: profiletype) {
   async function ModifierImageuser(image: any) {
     if (nom1 != nom || prenom1 != prenom || password != password1) {
       try {
-        await fetch(`http://localhost:5003/updateuser`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/updateuser`, {
           method: 'put',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -100,7 +100,7 @@ function Feed({ setpdate }: profiletype) {
         for (const i of Object.keys(img)) {
           formData.append('imgCollection', img[i as unknown as number]);
         }
-        await fetch(`http://localhost:5003/uploadImage`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/uploadImage`, {
           body: formData,
           method: 'POST'
         })

@@ -30,7 +30,7 @@ export default function Modifierclient({
         for (const i of Object.keys(img)) {
           formData.append('imgCollection', img[i as unknown as number]);
         }
-        await fetch(`http://localhost:5003/uploadImage`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/uploadImage`, {
           body: formData,
           method: 'POST'
         })
@@ -52,7 +52,7 @@ export default function Modifierclient({
       client.img = imageProfile;
 
       await fetch(
-        `http://localhost:5003/updateclient/${selectedClient.client_id}`,
+        `${process.env.REACT_APP_API_URL}/updateclient/${selectedClient.client_id}`,
         {
           method: 'put',
           headers: { 'Content-Type': 'application/json' },

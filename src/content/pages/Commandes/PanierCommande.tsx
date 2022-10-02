@@ -12,6 +12,7 @@ type PanierCommandetype = {
   setTabCommand: Function;
   idClient: any;
   nomClient: any;
+  setshow: Function;
 };
 function PanierCommande({
   tabCommand,
@@ -20,7 +21,8 @@ function PanierCommande({
   total,
   setTabCommand,
   idClient,
-  nomClient
+  nomClient,
+  setshow
 }: PanierCommandetype) {
   function totalCommande() {
     let Somme = 0;
@@ -32,7 +34,7 @@ function PanierCommande({
   }
 
   async function detailCommande(element: any, id: any) {
-    await fetch(`http://localhost:5003/adddetailorder`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/adddetailorder`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -60,7 +62,7 @@ function PanierCommande({
   async function insertCommande() {
     var today = new Date();
     if (selectedOption !== 0 && total > 0) {
-      await fetch(`http://localhost:5003/addglobalorder`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/addglobalorder`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -85,6 +87,7 @@ function PanierCommande({
                 //pour refresh la commande
                 setTabCommand([]);
                 setTotal(0);
+                setshow(false);
               });
             }
           },

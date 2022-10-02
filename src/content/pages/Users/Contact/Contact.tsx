@@ -41,9 +41,9 @@ function Feed({ setpdate }: contacttype) {
     try {
       if (nom) {
         await fetch(
-          `http://localhost:5003/updatesctedetails/${localStorage.getItem(
-            'user_id'
-          )}
+          `${
+            process.env.REACT_APP_API_URL
+          }/updatesctedetails/${localStorage.getItem('user_id')}
         `,
           {
             method: 'put',
@@ -101,7 +101,7 @@ function Feed({ setpdate }: contacttype) {
         for (const i of Object.keys(img)) {
           formData.append('imgCollection', img[i as unknown as number]);
         }
-        await fetch(`http://localhost:5003/uploadImage`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/uploadImage`, {
           body: formData,
           method: 'POST'
         })
@@ -119,7 +119,7 @@ function Feed({ setpdate }: contacttype) {
   async function Ajouter() {
     try {
       if (nom && add && tel) {
-        await fetch(`http://localhost:5003/addsctedetails`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/addsctedetails`, {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

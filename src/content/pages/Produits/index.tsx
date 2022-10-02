@@ -36,7 +36,9 @@ export default function DashboardCrypto() {
   async function listeproduits() {
     try {
       await fetch(
-        `http://localhost:5003/products/${localStorage.getItem('user_id')}`,
+        `${process.env.REACT_APP_API_URL}/products/${localStorage.getItem(
+          'user_id'
+        )}`,
         {
           method: 'get',
           headers: { 'Content-Type': 'application/json' }

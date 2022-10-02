@@ -5,7 +5,7 @@ import { Grid, Container } from '@mui/material';
 import ProfileCover from './ProfileCover'; //Image
 import Profil from './Profil'; //  profil données
 import PopularTags from './PopularTags'; // facebook .....
- 
+
 function ManagementUserProfile() {
   const [update, setpdate] = useState(true);
   const [name, setName] = useState('');
@@ -14,7 +14,7 @@ function ManagementUserProfile() {
   const user = {
     name: prenom + ' ' + name,
     avatar: picture,
-    coverImg: 'http://localhost:5003/dosthing.jpg',
+    coverImg: '${process.env.REACT_APP_API_URL}/dosthing.jpg',
     description: 'Bienvenue' + ' ' + 'Mr(s)' + ' ' + name
   };
   useEffect(() => {

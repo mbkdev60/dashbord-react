@@ -55,7 +55,7 @@ function Register() {
   function Addclient(image: string) {
     if (password && email && nom && prenom) {
       if (re.test(email)) {
-        fetch(`http://localhost:5003/adduser`, {
+        fetch(`${process.env.REACT_APP_API_URL}/adduser`, {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -100,7 +100,7 @@ function Register() {
         for (const i of Object.keys(img)) {
           formData.append('imgCollection', img[i as unknown as number]);
         }
-        await fetch(`http://localhost:5003/uploadImage`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/uploadImage`, {
           body: formData,
           method: 'POST'
         })

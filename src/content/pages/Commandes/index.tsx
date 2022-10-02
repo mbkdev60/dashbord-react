@@ -29,11 +29,15 @@ export default function DashboardCrypto() {
   const [idClient, setidClient] = useState<any>();
   const [listeClients, setlisteClients] = useState<any>();
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
 
   async function listeproduits() {
     try {
       await fetch(
-        `http://localhost:5003/products/${localStorage.getItem('user_id')}`,
+        `${process.env.REACT_APP_API_URL}/products/${localStorage.getItem(
+          'user_id'
+        )}`,
         {
           method: 'get'
         }
@@ -48,9 +52,14 @@ export default function DashboardCrypto() {
   }
 
   function getClients() {
-    fetch(`http://localhost:5003/clients/${localStorage.getItem('user_id')}`, {
-      method: 'GET'
-    })
+    fetch(
+      `${process.env.REACT_APP_API_URL}/clients/${localStorage.getItem(
+        'user_id'
+      )}`,
+      {
+        method: 'GET'
+      }
+    )
       .then((res) => res.json())
       .then(
         (result) => {
@@ -85,29 +94,44 @@ export default function DashboardCrypto() {
       <PageTitleWrapper>
         <PageHeader />
       </PageTitleWrapper>
+      <div className=" d-flex flex-wrap  Search d-flex justify-content-between  ">
+        <div className="mt-2 mb-2">
+          <SelectClient
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+            setidClient={setidClient}
+            setNomClient={setNomClient}
+            listeClients={listeClients}
+          />
+        </div>
+        <div>
+          <Input
+            className="mt-2 "
+            style={{ width: '285px' }}
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="Rechercher..."
+            onChange={handleSearchterm}
+          />
+        </div>
+      </div>
 
-      <div className=" Search d-flex justify-content-between  my-4">
-        <SelectClient
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-          setidClient={setidClient}
-          setNomClient={setNomClient}
-          listeClients={listeClients}
-        />
-        <Input
-          className="ml-4"
-          style={{ width: '285px' }}
-          type="text"
-          name="searchBar"
-          id="searchBar"
-          placeholder="Rechercher..."
-          onChange={handleSearchterm}
-        />
+      <div className="d-block d-sm-none my-2">
+        <IconButton aria-label="add to favorites">
+          <PersonAddIcon
+            onClick={() => {
+              setShow(true);
+            }}
+            style={{ color: '#5f72ff' }}
+          />
+          total {total} €
+        </IconButton>
       </div>
 
       <Container maxWidth="lg">
         <div className="row ">
-          <div className="col-8 ">
+          <div className="col-12 col-sm-8 ">
             <div className="row ">
               {listproduits
                 // .filter((val: any) => {
@@ -130,7 +154,7 @@ export default function DashboardCrypto() {
                 })}
             </div>
           </div>
-          <div className="col-4 mt-3 ">
+          <div className="col-4 mt-3   d-none d-sm-block">
             {' '}
             {/* le 1/3 qui restait col-4 */}
             <PanierCommande
@@ -141,8 +165,34 @@ export default function DashboardCrypto() {
               setTabCommand={setTabCommand}
               idClient={idClient}
               nomClient={NomClient}
+              setshow={setShow}
             />
           </div>
+        </div>
+
+        <div>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Body>
+              <div>
+                <PanierCommande
+                  tabCommand={tabCommand}
+                  setTotal={setTotal}
+                  selectedOption={selectedOption}
+                  total={total}
+                  setTabCommand={setTabCommand}
+                  idClient={idClient}
+                  nomClient={NomClient}
+                  setshow={setShow}
+                />
+              </div>
+            </Modal.Body>
+
+            <Modal.Footer>
+              <Button onClick={handleClose} variant="outlined">
+                Fermer
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </Container>
       <Footer />

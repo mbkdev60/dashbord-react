@@ -30,9 +30,12 @@ function ModalDetail({
   const componentRef = useRef<HTMLDivElement>(null);
 
   async function getDetailCommande() {
-    await fetch(`http://localhost:5003/getdetailorder/${idcommande}`, {
-      method: 'GET'
-    })
+    await fetch(
+      `${process.env.REACT_APP_API_URL}/getdetailorder/${idcommande}`,
+      {
+        method: 'GET'
+      }
+    )
       .then((res) => res.json())
       .then(
         (result) => {
@@ -46,7 +49,7 @@ function ModalDetail({
   }
 
   async function detailClient() {
-    fetch(`http://localhost:5003/getclient/${idclient}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/getclient/${idclient}`, {
       method: 'GET'
     })
       .then((res) => res.json())

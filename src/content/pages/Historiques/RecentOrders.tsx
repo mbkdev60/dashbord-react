@@ -12,7 +12,7 @@ function RecentOrders() {
   async function listeproduits() {
     try {
       await fetch(
-        `http://localhost:5003/getglobalOrder/${localStorage.getItem(
+        `${process.env.REACT_APP_API_URL}/getglobalOrder/${localStorage.getItem(
           'user_id'
         )}`,
         {
@@ -29,9 +29,14 @@ function RecentOrders() {
   }
 
   function getClients() {
-    fetch(`http://localhost:5003/clients/${localStorage.getItem('user_id')}`, {
-      method: 'GET'
-    })
+    fetch(
+      `${process.env.REACT_APP_API_URL}/clients/${localStorage.getItem(
+        'user_id'
+      )}`,
+      {
+        method: 'GET'
+      }
+    )
       .then((res) => res.json())
       .then(
         (result) => {
@@ -55,7 +60,9 @@ function RecentOrders() {
 
   function getsctedetails() {
     fetch(
-      `http://localhost:5003/getsctedetails/${localStorage.getItem('user_id')}`,
+      `${process.env.REACT_APP_API_URL}/getsctedetails/${localStorage.getItem(
+        'user_id'
+      )}`,
       {
         method: 'GET'
       }

@@ -13,7 +13,7 @@ function ManagementUserContact() {
   const contact = {
     nom: nom,
     avatar: logo,
-    coverImg: 'http://localhost:5003/nasa.jpg',
+    coverImg: '${process.env.REACT_APP_API_URL}/nasa.jpg',
     description: 'Bienvenue' + ' ' + 'chez la société' + ' ' + nom
   };
 

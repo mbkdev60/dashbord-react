@@ -16,7 +16,7 @@ function Deleteclient({ show, client, setShow, setIsUpdate }: deleteClient) {
 
   async function deleteClient() {
     try {
-      await fetch(`http://localhost:5003/deleteclient/${client.client_id}`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/deleteclient/${client.client_id}`, {
         method: 'delete'
       })
         .then((response) => response.json())

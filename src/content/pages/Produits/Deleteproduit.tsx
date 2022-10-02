@@ -15,9 +15,12 @@ function Deleteproduit({ show, Produit, setShow, setIsUpdate }: deleteproduit) {
 
   async function deleteUser() {
     try {
-      await fetch(`http://localhost:5003/deleteproduct/${Produit.product_id}`, {
-        method: 'delete'
-      })
+      await fetch(
+        `${process.env.REACT_APP_API_URL}/deleteproduct/${Produit.product_id}`,
+        {
+          method: 'delete'
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           Swal.fire({
