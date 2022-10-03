@@ -6,27 +6,28 @@ import Image from '../../overview/Login/Image';
 import Swal from 'sweetalert2';
 import { Button } from '@mui/material';
 
-type clientcardType = {
+type RegisterClient = {
   setIsUpdate: React.Dispatch<React.SetStateAction<boolean>>;
   selectedClient: any;
   setShow: Function;
   show: boolean;
 };
+
 export default function Modifierclient({
   selectedClient,
   setIsUpdate,
   show,
   setShow
-}: clientcardType) {
+}: RegisterClient) {
   const handleClose = () => setShow(false);
-  const [imageclient, setImage] = useState(selectedClient?.img);
   const [client, setClient] = useState(selectedClient);
+  const [imageclient, setImage] = useState();
 
   async function RegisterClient() {
     try {
       if (imageclient !== client.img) {
         var formData = new FormData();
-        let img = imageclient;
+        let img: any = imageclient;
         for (const i of Object.keys(img)) {
           formData.append('imgCollection', img[i as unknown as number]);
         }
@@ -36,7 +37,7 @@ export default function Modifierclient({
         })
           .then((response) => response.json())
           .then((data: any) => {
-            setIsUpdate(true);
+            // setIsUpdate(true);
             EditClient(data);
           });
       } else {
@@ -62,7 +63,6 @@ export default function Modifierclient({
         .then((response) => response.json())
         .then((data) => {
           setIsUpdate(true);
-
           Swal.fire({
             title: 'Le client a été mofifié !',
             icon: 'success',
@@ -76,6 +76,7 @@ export default function Modifierclient({
   }
   React.useEffect(() => {
     setClient(selectedClient);
+    setImage(selectedClient?.img);
   }, [selectedClient]);
 
   return (
@@ -228,7 +229,13 @@ export default function Modifierclient({
           >
             Annuler
           </Button>
-          <Button type="button" variant="contained" onClick={RegisterClient}>
+          <Button
+            type="button"
+            variant="contained"
+            onClick={() => {
+              RegisterClient();
+            }}
+          >
             Modifier
           </Button>
         </Modal.Footer>

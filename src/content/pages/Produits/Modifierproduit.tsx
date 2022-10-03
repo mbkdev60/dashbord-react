@@ -12,16 +12,15 @@ type Modifierproduit = {
   setIsUpdate: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+//eslint-disable-next-line @typescript-eslint/no-redeclare
 export default function Modifierproduit({
   selectedProduit,
   show,
   setShow,
   setIsUpdate
 }: Modifierproduit) {
-  const [imageproduit, setImage] = useState(selectedProduit?.img);
   const [Produit, setProduit] = useState(selectedProduit);
-
+  const [imageproduit, setImage] = useState();
   const handleClose = () => setShow(false);
 
   async function modifierProduct() {
@@ -77,6 +76,7 @@ export default function Modifierproduit({
 
   React.useEffect(() => {
     setProduit(selectedProduit);
+    setImage(selectedProduit?.image);
   }, [selectedProduit]);
 
   return (
@@ -176,7 +176,14 @@ export default function Modifierproduit({
         >
           Annuler
         </Button>
-        <Button type="button" variant="contained" onClick={modifierProduct}>
+        <Button
+          type="button"
+          variant="contained"
+          onClick={() => {
+            modifierProduct();
+            // console.log('Modifier Products', selectedProduit.image);
+          }}
+        >
           Modifier
         </Button>
       </Modal.Footer>

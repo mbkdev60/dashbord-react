@@ -117,7 +117,7 @@ function Login() {
       >
         <Grid item md={10} lg={8} xl={12} mx="auto">
           <TypographyH1 className="title-cl" sx={{ mb: 2 }} variant="h1">
-            Connectez Vous
+            Connectez-vous
           </TypographyH1>
           <div className="d-flex flex-column bd-highlight mb-3">
             <div className=" bd-highlight ">
@@ -198,9 +198,9 @@ function Login() {
         </Grid>
       </Grid>
       <Box sx={{ pb: 2 }}>
-        <b>
-          © 2022-Application. All Rights Reserved | Designed by Moez BEN KHALED
-        </b>
+      {/* © 2022-Application. All Rights Reserved | Designed by Moez BEN KHALED */}
+        &copy; 2022- Application / All Rights Reserved. Designed by Moez BEN
+        KHALED
       </Box>
     </Container>
   );

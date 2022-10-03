@@ -18,7 +18,7 @@ function Footer() {
       >
         <Box>
           <Typography variant="subtitle1">
-            &copy; 2022-Application. All Rights Reserved | Designed by Moez BEN
+            &copy; 2022- Application / All Rights Reserved.   Designed by Moez BEN
             KHALED 
           </Typography>
         </Box>
