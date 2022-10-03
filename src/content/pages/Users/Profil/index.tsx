@@ -14,7 +14,7 @@ function ManagementUserProfile() {
   const user = {
     name: prenom + ' ' + name,
     avatar: picture,
-    coverImg: '${process.env.REACT_APP_API_URL}/dosthing.jpg',
+    coverImg: `${process.env.REACT_APP_API_URL}/dosthing.jpg`,
     description: 'Bienvenue' + ' ' + 'Mr(s)' + ' ' + name
   };
   useEffect(() => {
