@@ -78,8 +78,7 @@ function PanierCommande({
           (result) => {
             for (const element of tabCommand) {
               detailCommande(element, result.order_id);
-              // pour le pop-up on utilise swal.fire
-              Swal.fire({
+            Swal.fire({
                 title: 'Merci pour votre commande',
                 icon: 'success',
                 confirmButtonText: 'Ok'

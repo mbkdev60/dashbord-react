@@ -55,7 +55,6 @@ export default function DashboardCrypto() {
 
   const handleSearchterm = (e: any) => {
     setSearch(e.target.value);
-    console.log(search);
   };
 
   useEffect(() => {

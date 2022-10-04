@@ -66,6 +66,7 @@ export default function DashboardCrypto() {
   const handleSearchterm = (e: any) => {
     let value = e.target.value;
     setSearch(value);
+    console.log(e.target.value + '---' + search);
   };
 
   const handleShow = () => setShow(true);
