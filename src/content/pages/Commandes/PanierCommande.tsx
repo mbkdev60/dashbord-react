@@ -104,11 +104,23 @@ function PanierCommande({
   }
   return (
     <Card>
-      <div className="my-2">
-        <h1 style={{ textAlign: 'center' }}> Votre Panier </h1>
+      <div className="m-2 ">
+        <h5
+          style={{
+            textAlign: 'center',
+            backgroundColor: 'rgb(34, 53, 105)',
+            color: '#fff',
+            paddingBottom: '7px',
+            paddingTop: '7px',
+            borderRadius: '5px'
+          }}
+        >
+          {' '}
+          Votre Panier{' '}
+        </h5>
       </div>
 
-      {tabCommand ? (
+      {tabCommand.length > 0 ? (
         <div>
           <table className="table mt-5 text-center">
             <thead>
@@ -149,16 +161,18 @@ function PanierCommande({
         </div>
       ) : (
         <div className="d-flex justify-content-center">
-          <h5 style={{ color: ' #abadad' }}>Votre panier est vide </h5>
+          <h6 style={{ color: ' #abadad', textAlign: 'center' }}>
+            Votre panier est malheureusement vide{' '}
+          </h6>
         </div>
       )}
 
       <div className="d-flex justify-content-between px-2 ">
         <div className="fas fa-divide ">
-          <h4>Total </h4>
+          <h5>Total </h5>
         </div>
         <div>
-          <h4>{total} €</h4>{' '}
+          <h5>{total} €</h5>{' '}
         </div>
       </div>
       <div className="p-2 bd-highlight">
