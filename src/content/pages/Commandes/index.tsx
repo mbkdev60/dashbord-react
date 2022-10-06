@@ -5,7 +5,7 @@ import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import IconButton from '@mui/material/IconButton';
 import { Input } from 'reactstrap';
 import Modal from 'react-bootstrap/Modal';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Footer from 'src/components/Footer';
 import {
   Card,
@@ -129,21 +129,21 @@ export default function DashboardCrypto() {
         </div>
       </div>
 
-      <div className="d-block d-sm-none my-2">
-        <IconButton aria-label="add to favorites">
-          <PersonAddIcon
+      <div className="d-lg-block d-lg-none d-flex justify-content-between  my-2">
+        <IconButton aria-label="show cart">
+          <ShoppingCartIcon
             onClick={() => {
               setShow(true);
             }}
-            style={{ color: '#5f72ff' }}
+            style={{ color: '#5f72ff', width: '9rem' }}
           />
-          total {total} €
         </IconButton>
+        {/*<h5>Total {total} €</h5>*/}
       </div>
 
       <Container maxWidth="lg">
         <div className="row ">
-          <div className="col-12 col-sm-8 ">
+          <div className="  col-12 col-md-12  col-lg-8 ">
             <div className="row ">
               {listproduits
                 .filter((val: any) => {
@@ -152,7 +152,7 @@ export default function DashboardCrypto() {
                 .map((Produit: any, index: number) => {
                   return (
                     <div
-                      className="col-sm mt-3 col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2"
+                      className="col-sm col-lg-4 col-md-4 ml-0 col-sm-6 col-xs-12 my-2 mt-3 "
                       key={index}
                     >
                       <div>
@@ -217,7 +217,7 @@ export default function DashboardCrypto() {
               setTotal={setTotal}
             />
           </div>
-          <div className="col-4 mt-3   d-none d-sm-block">
+          <div className="col-4 mt-3   d-none d-lg-block">
             {' '}
             {/* le 1/3 qui restait col-4 */}
             <PanierCommande

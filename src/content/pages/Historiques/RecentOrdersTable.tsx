@@ -130,7 +130,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
               </FormControl>
             </Box>
           }
-        />
+          />
 
         <Divider />
         <TableContainer>
