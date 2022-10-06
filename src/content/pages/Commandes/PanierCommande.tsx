@@ -78,7 +78,7 @@ function PanierCommande({
           (result) => {
             for (const element of tabCommand) {
               detailCommande(element, result.order_id);
-            Swal.fire({
+              Swal.fire({
                 title: 'Merci pour votre commande',
                 icon: 'success',
                 confirmButtonText: 'Ok'
@@ -103,7 +103,7 @@ function PanierCommande({
     }
   }
   return (
-    <Card>
+    <Card className="modalpostion">
       <div className="m-2 ">
         <h5
           style={{
@@ -161,7 +161,7 @@ function PanierCommande({
         </div>
       ) : (
         <div className="d-flex justify-content-center">
-          <h6 style={{ color: ' #abadad', textAlign: 'center' }}>
+          <h6 style={{ color: ' #abadad', margin: '10px' }}>
             Votre panier est malheureusement vide{' '}
           </h6>
         </div>

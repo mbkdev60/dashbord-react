@@ -47,7 +47,7 @@ export default function DashboardCrypto() {
     JSON.parse(JSON.stringify(localStorage.getItem('user_id')))
   );
   let imageProfile = '${process.env.REACT_APP_API_URL}/product.png';
-  /// get liste client
+
   async function getlisteclients() {
     try {
       await fetch(`${process.env.REACT_APP_API_URL}/clients/${id}`, {
@@ -66,8 +66,7 @@ export default function DashboardCrypto() {
   const handleSearchterm = (e: any) => {
     let value = e.target.value;
     setSearch(value);
-    console.log(e.target.value + '---' + search);
-  };
+    };
 
   const handleShow = () => setShow(true);
 

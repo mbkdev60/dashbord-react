@@ -1,17 +1,23 @@
 .Search {
-    padding-right: 9.5rem !important;
-    padding-left: 12rem !important;
+  padding-right: 9.5rem !important;
+  padding-left: 12rem !important;
 }
-
+/* ///mobile */
 @media (max-width: 768px) {
-    .Search {
-        padding-right: 0rem !important;
-        padding-left: 1rem !important;
-    }
+  .Search {
+    padding-right: 0rem !important;
+    padding-left: 1rem !important;
+  }
+  .modalpostion {
+    position: static !important;
+  }
 }
 .IconButtonst {
- padding: 0px !important;
+  padding: 0px !important;
 }
 .select_cl {
-    width: 285px;
+  width: 285px;
+}
+.modalpostion {
+  position: fixed;
 }
