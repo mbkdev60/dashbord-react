@@ -41,7 +41,7 @@ function PageHeader() {
           {user.name}
         </Typography>
         <Typography variant="subtitle2">
-          Voici la liste des commandes
+          Prise de commandes
         </Typography>
       </Grid>
     </Grid>

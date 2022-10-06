@@ -104,8 +104,8 @@ export default function DashboardCrypto() {
       <PageTitleWrapper>
         <PageHeader />
       </PageTitleWrapper>
-      <div className=" d-flex flex-wrap  Search d-flex justify-content-between  ">
-        <div className="mt-2 mb-2">
+      <div className=" d-flex flex-wrap  Search justify-content-between  ">
+        <div className="mt-2 mb-2" style={{ width: '270px' }}>
           <SelectClient
             selectedOption={selectedOption}
             setSelectedOption={setSelectedOption}
@@ -116,8 +116,8 @@ export default function DashboardCrypto() {
         </div>
         <div>
           <Input
-            className="mt-2 "
-            style={{ width: '285px' }}
+            className="mt-2"
+            style={{ width: '280px' }}
             type="text"
             name="searchBar"
             id="searchBar"

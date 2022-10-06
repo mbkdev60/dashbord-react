@@ -122,7 +122,7 @@ function PanierCommande({
 
       {tabCommand.length > 0 ? (
         <div>
-          <table className="table mt-5 text-center">
+          <table className="table mt-3 text-center">
             <thead>
               <tr>
                 <th>Nom</th>

@@ -130,8 +130,6 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
               </FormControl>
             </Box>
           }
-          // style= {{ color: 'blue' }}
-          // title="COMMANDES RECENTES"
         />
 
         <Divider />
@@ -197,7 +195,6 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
                     </TableCell>
                     <TableCell>
                       <Button
-                        // className="btntype"
                         variant="outlined"
                         onClick={() => {
                           setidclient(cryptoOrder.client_id);
