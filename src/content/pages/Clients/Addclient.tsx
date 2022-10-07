@@ -1,8 +1,7 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { Container, Button } from '@mui/material';
-import { Input } from 'reactstrap';
+import { Button } from '@mui/material';
 import Modal from 'react-bootstrap/Modal';
 import TextField from '@mui/material/TextField';
 import Image from '../../overview/Login/Image';

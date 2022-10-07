@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-import logo from '../../../images/logo.png';
 type Facturetype = {
   commande: any;
   sctedetail: any;

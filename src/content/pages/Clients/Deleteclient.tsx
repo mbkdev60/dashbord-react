@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { Container, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import Swal from 'sweetalert2';
 
 type deleteClient = {

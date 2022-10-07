@@ -23,25 +23,36 @@ export default function Modifierclient({
   const [client, setClient] = useState(selectedClient);
   const [imageclient, setImage] = useState();
 
+  let re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   async function RegisterClient() {
     try {
-      if (imageclient !== client.img) {
-        var formData = new FormData();
-        let img: any = imageclient;
-        for (const i of Object.keys(img)) {
-          formData.append('imgCollection', img[i as unknown as number]);
+      if (re.test(client.mail)) {
+        if (imageclient !== client.img) {
+          var formData = new FormData();
+          let img: any = imageclient;
+          for (const i of Object.keys(img)) {
+            formData.append('imgCollection', img[i as unknown as number]);
+          }
+          await fetch(`${process.env.REACT_APP_API_URL}/uploadImage`, {
+            body: formData,
+            method: 'POST'
+          })
+            .then((response) => response.json())
+            .then((data: any) => {
+              // setIsUpdate(true);
+              EditClient(data);
+            });
+        } else {
+          EditClient(imageclient);
         }
-        await fetch(`${process.env.REACT_APP_API_URL}/uploadImage`, {
-          body: formData,
-          method: 'POST'
-        })
-          .then((response) => response.json())
-          .then((data: any) => {
-            // setIsUpdate(true);
-            EditClient(data);
-          });
       } else {
-        EditClient(imageclient);
+        Swal.fire({
+          title: ' Cet email est invalide !',
+          icon: 'warning',
+          confirmButtonText: 'Ok'
+        });
       }
     } catch (error) {
       console.log(error);
