@@ -165,10 +165,10 @@ function Feed({ setpdate }: contacttype) {
   }
 
   return (
-    <Card style={{ width: '800px' }}>
+    <Card sx={{ height: '100%'}}>
       <CardHeader title="Modifier les coordonnées de votre société" />
       <Divider />
-      <Box p={2} className="justify-content-center">
+      <Box p={2} className="justify-content-center justify-align-items">
         <div className="d-flex flex-column bd-highlight  mb-3">
           <div className=" bd-highlight ">
             <TextField

@@ -127,8 +127,8 @@ function Register() {
               container
             >
               <Grid item md={10} lg={8} mx="auto">
-                <TypographyH1 sx={{ mb: 2 }} variant="h1">
-                  Inscrivez Vous
+                <TypographyH1 className="title-cl" sx={{ mb: 2 }} variant="h1">
+                  Inscrivez-Vous
                 </TypographyH1>
                 <div className="d-flex flex-column bd-highlight mb-3 ">
                   <div className=" bd-highlight ">

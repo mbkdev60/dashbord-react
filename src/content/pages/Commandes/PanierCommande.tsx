@@ -103,7 +103,7 @@ function PanierCommande({
     }
   }
   return (
-    <Card className="modalpostion">
+    <Card className="modalposition">
       <div className="m-2 ">
         <h5
           style={{

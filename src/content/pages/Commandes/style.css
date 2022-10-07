@@ -8,7 +8,7 @@
     padding-right: 0rem !important;
     padding-left: 1rem !important;
   }
-  .modalpostion {
+  .modalposition {
     position: static !important;
   }
 }
@@ -18,6 +18,6 @@
 .select_cl {
   width: 285px;
 }
-.modalpostion {
+.modalposition {
   position: fixed;
 }

@@ -117,8 +117,8 @@ function Feed({ setpdate }: profiletype) {
   }
 
   return (
-    <Card style={{ width: '800px' }}>
-      <CardHeader title="Modifier le profil" />
+    <Card sx={{ height: '100%' }}>
+      <CardHeader title="Modifier votre profil" />
       <Divider />
       <Box p={2} className="justify-content-center">
         <div className="d-flex flex-column bd-highlight  mb-3">
@@ -163,11 +163,15 @@ function Feed({ setpdate }: profiletype) {
               }}
             />
           </div>
-          <div className=" bd-highlight mt-3 ">
+          <div className=" bd-highlight mt-3  d-flex  justify-content-center align-items-center">
             <Image setImage={setImageProfile} images={imageProfile} />
           </div>
           <div className=" bd-highlight  d-flex align-items-center justify-content-center mt-5">
-            <Button className=" " variant="contained" onClick={Modifier}>
+            <Button
+              className=" align-items-center"
+              variant="contained"
+              onClick={Modifier}
+            >
               Modifier
             </Button>
           </div>

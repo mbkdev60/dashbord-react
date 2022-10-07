@@ -117,7 +117,7 @@ function Login() {
       >
         <Grid item md={10} lg={8} xl={12} mx="auto">
           <TypographyH1 className="title-cl" sx={{ mb: 2 }} variant="h1">
-            Connectez-vous
+            Connectez-Vous
           </TypographyH1>
           <div className="d-flex flex-column bd-highlight mb-3">
             <div className=" bd-highlight ">

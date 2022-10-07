@@ -104,7 +104,7 @@ export default function DashboardCrypto() {
       <PageTitleWrapper>
         <PageHeader />
       </PageTitleWrapper>
-      <div className=" d-flex flex-wrap  Search justify-content-between  ">
+      <div className=" d-flex flex-wrap  Search justify-content-between ">
         <div className="mt-2 mb-2" style={{ width: '270px' }}>
           <SelectClient
             selectedOption={selectedOption}
@@ -128,14 +128,14 @@ export default function DashboardCrypto() {
           />
         </div>
       </div>
-            
+
       <div className="d-lg-block d-lg-none d-flex justify-content-between  my-2">
         <IconButton aria-label="show cart">
           <ShoppingCartIcon
             onClick={() => {
               setShow(true);
             }}
-            style={{ color: '#5f72ff', width: '9rem' }}
+            style={{ color: '#5f72ff', width: '4rem' }}
           />
         </IconButton>
         {/*<h5>Total {total} €</h5>*/}
