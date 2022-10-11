@@ -99,7 +99,7 @@ function Logo() {
 
   return (
     <TooltipWrapper
-      title="AURES Application by Chayma BEN BRAHIM"
+      title="AURES Application"
       arrow
     >
       <LogoWrapper to="/overview">

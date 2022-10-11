@@ -3,8 +3,6 @@ import {
   Button,
   Container,
   Grid,
-  IconButton,
-  InputAdornment,
   Typography
 } from '@mui/material';
 import { useState } from 'react';
@@ -198,7 +196,6 @@ function Login() {
         </Grid>
       </Grid>
       <Box sx={{ pb: 2 }}>
-      {/* © 2022-Application. All Rights Reserved | Designed by Moez BEN KHALED */}
         &copy; 2022- Application / All Rights Reserved. Designed by Moez BEN
         KHALED
       </Box>

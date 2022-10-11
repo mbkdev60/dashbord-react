@@ -8,7 +8,6 @@ function Image({ setImage, images }: ImageProps) {
   function onFileChange(e: any) {
     setImage(e.target.files);
     setObject(URL.createObjectURL(e.target.files![0]));
-    // setObject(URL.createObjectURL(e.target.files[0]));
   }
 
   return (

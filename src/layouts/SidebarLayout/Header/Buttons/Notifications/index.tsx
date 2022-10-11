@@ -104,7 +104,7 @@ function HeaderNotifications() {
           </Typography>
         </Box>
         <Divider />
-        {/* <List sx={{ p: 0 }}>
+        <List sx={{ p: 0 }}>
           <ListItem
             sx={{ p: 2, minWidth: 350, display: { xs: 'block', sm: 'flex' } }}
           >
@@ -129,7 +129,7 @@ function HeaderNotifications() {
               </Typography>
             </Box>
           </ListItem>
-        </List> */}
+        </List>
       </Popover>
     </>
   );
