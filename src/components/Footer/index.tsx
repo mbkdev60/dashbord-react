@@ -11,9 +11,9 @@ function Footer() {
     <FooterWrapper className="footer-wrapper">
       <Box
         pb={4}
-        display={{ xs: 'block', md: 'flex' }}
+        display={{ xs: 'block'}}
         alignItems="center"
-        textAlign={{ xs: 'center', md: 'left' }}
+        textAlign="center"
         justifyContent="space-between"
       >
         <Box>

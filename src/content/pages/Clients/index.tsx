@@ -143,7 +143,7 @@ export default function DashboardCrypto() {
                           <CardMedia
                             sx={{
                               height: 0,
-                              paddingTop: '130%' // 16:9
+                              paddingTop: '110%' // 16:9
                             }}
                             image={client.img}
                           />
