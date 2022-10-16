@@ -5,6 +5,7 @@ import { Card, Container, Grid } from '@mui/material';
 import Footer from 'src/components/Footer';
 import Somme from './Somme';
 import TopClient from './TopClient';
+import BarChar from './BarChar';
 
 function DashboardCrypto() {
   return (
@@ -19,6 +20,7 @@ function DashboardCrypto() {
         <Card>
           <Somme />
           <TopClient />
+          <BarChar />
         </Card>
       </Container>
       <Footer />
