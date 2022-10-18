@@ -76,7 +76,7 @@ function ChiffreAffaires() {
               <TrendingUp fontSize="large" />
             </AvatarSuccess>
             <Box>
-              <Typography variant="h4"> {Sum} €</Typography>
+              <Typography variant="h3"> {Sum} €</Typography>
               <Typography variant="subtitle2" noWrap>
                 Ce mois
               </Typography>

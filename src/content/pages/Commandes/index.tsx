@@ -217,7 +217,7 @@ export default function DashboardCrypto() {
               setTotal={setTotal}
             />
           </div>
-          <div className="col-4 mt-3   d-none d-lg-block">
+          <div className="col-4 mt-3   d-none d-lg-block ">
             {' '}
             {/* le 1/3 qui restait col-4 */}
             <PanierCommande

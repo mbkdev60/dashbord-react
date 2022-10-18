@@ -14,17 +14,16 @@ const Loader = (Component) => (props) =>
       <Component {...props} />
     </Suspense>
   );
+
 //register
 const Register = Loader(
   lazy(() => import('src/content/overview/Login/Register'))
 );
 
 // Pages
-
 const Overview = Loader(lazy(() => import('src/content/overview')));
 
 // Dashboards
-
 const Clients = Loader(lazy(() => import('src/content/pages/Clients/index')));
 
 const Produits = Loader(lazy(() => import('src/content/pages/Produits/index')));
@@ -47,7 +46,7 @@ const Historique = Loader(
 
 // Dashboards
 
-const Crypto = Loader(lazy(() => import('src/content/dashboards/Crypto')));
+const Stats = Loader(lazy(() => import('src/content/dashboards/Stats')));
 
 const routes: RouteObject[] = [
   {
@@ -59,8 +58,8 @@ const routes: RouteObject[] = [
         element: <Navigate to="clients" replace />
       },
       {
-        path: 'crypto',
-        element: <Crypto />
+        path: 'stats',
+        element: <Stats />
       },
       {
         path: 'clients',
@@ -101,7 +100,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '',
-    element: <Navigate to="dashboards/clients" replace />
+    element: <Navigate to="dashboards/Clients" replace />
   }
 ];
 

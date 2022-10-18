@@ -172,7 +172,7 @@ function Login() {
           </Box>
 
           <Grid container spacing={3} mt={5}>
-            <Grid item md={12}>
+            <Grid item md={12} sm={12}>
               <TsAvatar>
                 <img
                   src={logo}

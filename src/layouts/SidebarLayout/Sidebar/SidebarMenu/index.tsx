@@ -184,7 +184,7 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   onClick={closeSidebar}
-                  to="/dashboards/crypto"
+                  to="/dashboards/stats"
                   startIcon={<FaIcons.FaChartLine />}
                 >
                   Marketing du contenu

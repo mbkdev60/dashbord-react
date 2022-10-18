@@ -105,7 +105,7 @@ export default function DashboardCrypto() {
               return (
                 <>
                   <div className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2">
-                    <Card key={index}>
+                    <Card key={index} style={{ backgroundColor: '#f5f5f6' }}>
                       <CardHeader title="Fiche Produit" />
                       <Divider />
                       <CardContent>

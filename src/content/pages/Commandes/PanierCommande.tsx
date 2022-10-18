@@ -32,7 +32,7 @@ function PanierCommande({
 
     setTotal(Somme);
   }
-
+ 
   async function detailCommande(element: any, id: any) {
     await fetch(`${process.env.REACT_APP_API_URL}/adddetailorder`, {
       method: 'POST',
@@ -102,6 +102,7 @@ function PanierCommande({
       });
     }
   }
+  
   return (
     <Card className="modalposition">
       <div className="m-2 ">
@@ -121,7 +122,7 @@ function PanierCommande({
       </div>
 
       {tabCommand.length > 0 ? (
-        <div>
+        <div className="scroller">
           <table className="table mt-3 text-center">
             <thead>
               <tr>

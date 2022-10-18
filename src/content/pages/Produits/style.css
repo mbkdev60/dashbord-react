@@ -3,7 +3,7 @@
     padding-right: 9.5rem !important;
     padding-left: 12rem !important;
 }
-
+/*Mobile*/
 @media (max-width: 768px) {
     .Search {
         padding-right: 0rem !important;

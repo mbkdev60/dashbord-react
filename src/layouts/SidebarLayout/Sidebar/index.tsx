@@ -67,7 +67,7 @@ function Sidebar() {
                 <img
                   src={logo}
                   alt="Typescript"
-                  style={{ marginTop:'-30px'  ,width: '20rem', height: '9rem' }}
+                  style={{ marginTop: '-30px', width: '20rem', height: '9rem' }}
                 />
               </div>
             </Box>
@@ -106,14 +106,14 @@ function Sidebar() {
           }}
         >
           <Scrollbar>
-            <Box mt={3} className="d-flex justify-content-center">
+            <Box mt={3} className="d-flex">
               <Box
                 mx={2}
                 sx={{
                   width: 52
                 }}
               >
-                <img src={logo} style={{ width: '20px', height: '20px' }} />
+                <img src={logo} style={{ width: '16rem', height: '9rem' }} />
               </Box>
             </Box>
             <Divider

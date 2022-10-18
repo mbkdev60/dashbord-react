@@ -5,7 +5,7 @@ import { Card, Container, Grid } from '@mui/material';
 import Footer from 'src/components/Footer';
 import ChiffreAffaires from './ChiffreAffaires';
 import TopClient from './TopClient';
-import BarChar from './BarChar';
+import BarChart from './BarChart';
 import { blue } from '@mui/material/colors';
 
 function DashboardCrypto() {
@@ -18,10 +18,10 @@ function DashboardCrypto() {
         <PageHeader />
       </PageTitleWrapper>
       <Container maxWidth="lg">
-        <Card style = {{backgroundColor : "#f5f5f6"}}>
+        <Card style={{ backgroundColor: '#f5f5f6' }}>
           <ChiffreAffaires />
           <TopClient />
-          <BarChar />
+          <BarChart />
         </Card>
       </Container>
       <Footer />

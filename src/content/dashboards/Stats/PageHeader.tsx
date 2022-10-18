@@ -23,11 +23,16 @@ function PageHeader() {
         />
       </Grid>
       <Grid item>
-        <Typography variant="h3" component="h3" gutterBottom>
-          Welcome, {user.name}!
+        <Typography
+          variant="h3"
+          component="h3"
+          gutterBottom
+          style={{ color: 'blue' }}
+        >
+          Bonjour, {user.name} 
         </Typography>
         <Typography variant="subtitle2">
-          Today is a good day to start trading crypto assets!
+          Conrôle et suivi de votre chiffre d'affaires !
         </Typography>
       </Grid>
     </Grid>

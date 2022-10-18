@@ -37,11 +37,16 @@ function PageHeader() {
         />
       </Grid>
       <Grid item>
-        <Typography variant="h3" component="h3" gutterBottom style={{color: "blue"}}>
-          Bienvenue, {user.name}!
+        <Typography
+          variant="h3"
+          component="h3"
+          gutterBottom
+          style={{ color: 'blue' }}
+        >
+          Bienvenue, {user.name} 😉
         </Typography>
         <Typography variant="subtitle2">
-          Voici la liste de vos clients!
+          Voici la liste de vos clients !
         </Typography>
       </Grid>
     </Grid>
