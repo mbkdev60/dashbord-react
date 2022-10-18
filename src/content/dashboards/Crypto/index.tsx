@@ -3,9 +3,10 @@ import PageHeader from './PageHeader';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import { Card, Container, Grid } from '@mui/material';
 import Footer from 'src/components/Footer';
-import Somme from './Somme';
+import ChiffreAffaires from './ChiffreAffaires';
 import TopClient from './TopClient';
 import BarChar from './BarChar';
+import { blue } from '@mui/material/colors';
 
 function DashboardCrypto() {
   return (
@@ -17,8 +18,8 @@ function DashboardCrypto() {
         <PageHeader />
       </PageTitleWrapper>
       <Container maxWidth="lg">
-        <Card>
-          <Somme />
+        <Card style = {{backgroundColor : "#f5f5f6"}}>
+          <ChiffreAffaires />
           <TopClient />
           <BarChar />
         </Card>

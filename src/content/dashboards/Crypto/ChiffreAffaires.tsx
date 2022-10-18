@@ -30,7 +30,7 @@ const AvatarSuccess = styled(Avatar)(
 `
 );
 
-function Somme() {
+function ChiffreAffaires() {
   const [Sum, SetSum] = useState('0');
   async function SumCommande() {
     try {
@@ -57,7 +57,7 @@ function Somme() {
 
   return (
     <div className="px-3 mt-5">
-      <h4 className="my-3 "> Account Balance</h4>
+      <h4 className="my-3 "> Chiffre d'Affaires </h4>
       <div className="px-2">
         <Box>
           <Box
@@ -78,7 +78,7 @@ function Somme() {
             <Box>
               <Typography variant="h4"> {Sum} €</Typography>
               <Typography variant="subtitle2" noWrap>
-                this month
+                Ce mois
               </Typography>
             </Box>
           </Box>
@@ -88,4 +88,4 @@ function Somme() {
   );
 }
 
-export default Somme;
+export default ChiffreAffaires;
