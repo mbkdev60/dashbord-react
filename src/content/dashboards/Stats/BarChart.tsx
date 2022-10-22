@@ -18,26 +18,23 @@ ChartJS.register(
   Legend
 );
 
-
-
-
 function BarChart() {
   const options: any = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'bottom'
       },
-      title: {
-        display: true,
-        text: "CA Mensuel"
-      }
+      // title: {
+      //   display: true,
+      //   text: 'CA Mensuel'
+      // }
     }
   };
 
   const labels = [
     'Janvier',
-    'Fevrier',
+    'Février',
     'Mars',
     'Avril',
     'Mai',
@@ -54,15 +51,10 @@ function BarChart() {
     labels,
     datasets: [
       {
-        label: 'CA',
+        label: "Chiffre d'Affaires ",
         data: [15, 53, 35, 28, 70, 43, 15, 85, 62, 78, 53, 64],
-        backgroundColor: 'rgba(244, 152, 152, 0.993)'
+        backgroundColor: 'rgba(183, 188, 240, 0.993)'
       }
-      // {
-      //   label: 'Dataset 2',
-      //   data: [100, 200, 300, 400, 500],
-      //   backgroundColor: 'rgba(70, 101, 240, 0.993)'
-      // }
     ]
   };
   return (
