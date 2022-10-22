@@ -57,7 +57,7 @@ function ChiffreAffaires() {
 
   return (
     <div className="px-3 mt-5">
-      <h4 className="my-3 "> Chiffre d'Affaires </h4>
+      <h4 className="my-3" style={{color:"blue"}}> Chiffre d'Affaires </h4>
       <div className="px-2">
         <Box>
           <Box
