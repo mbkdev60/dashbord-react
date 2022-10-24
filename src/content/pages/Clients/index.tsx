@@ -66,7 +66,7 @@ export default function DashboardCrypto() {
   const handleSearchterm = (e: any) => {
     let value = e.target.value;
     setSearch(value);
-    };
+  };
 
   const handleShow = () => setShow(true);
 
@@ -120,10 +120,10 @@ export default function DashboardCrypto() {
                     className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2"
                     key={index}
                   >
-                    <Card style={{ backgroundColor: '#f5f5f6'}}>
+                    <Card style={{ backgroundColor: '#f5f5f6' }}>
                       <CardHeader title="Fiche Client" />
                       <Divider />
-                      <CardContent >
+                      <CardContent>
                         <Card sx={{ maxWidth: 345 }}>
                           <CardHeader
                             avatar={
@@ -163,7 +163,6 @@ export default function DashboardCrypto() {
                                 style={{ color: '#5f72ff' }}
                               />
                             </IconButton>
-
                             <IconButton aria-label="share">
                               <DeleteIcon
                                 onClick={() => {

@@ -29,10 +29,10 @@ function PageHeader() {
           gutterBottom
           style={{ color: 'blue' }}
         >
-          Bonjour, {user.name} 
+          Bonjour, {user.name}
         </Typography>
         <Typography variant="subtitle2">
-          Conrôle et suivi de votre chiffre d'affaires !
+          Conrôle et suivi de votre chiffre d'affaires 💲
         </Typography>
       </Grid>
     </Grid>

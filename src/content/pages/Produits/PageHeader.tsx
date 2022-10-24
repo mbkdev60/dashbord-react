@@ -46,7 +46,7 @@ function PageHeader() {
           {user.name}
         </Typography>
         <Typography variant="subtitle2">
-          Voici la liste de vos produits
+          Voici la liste de vos produits 🛍
         </Typography>
       </Grid>
     </Grid>

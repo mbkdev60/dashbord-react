@@ -41,7 +41,7 @@ function PageHeader() {
           {user.name}
         </Typography>
         <Typography variant="subtitle2">
-          Prise de commandes
+          Prise de commandes 🛒
         </Typography>
       </Grid>
     </Grid>

@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 function TopClient() {
   const [client, setclient] = useState([]);
-  async function listeClient() {
+  async function listeClients() {
     try {
       await fetch(
         `${process.env.REACT_APP_API_URL}/Topclient/${localStorage.getItem(
@@ -33,7 +33,7 @@ function TopClient() {
   }
 
   useEffect(() => {
-    listeClient();
+    listeClients();
   }, []);
 
   return (
