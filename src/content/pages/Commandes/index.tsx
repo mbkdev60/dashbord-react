@@ -142,121 +142,129 @@ export default function DashboardCrypto() {
       </div>
 
       <Container maxWidth="lg">
-        <div className="row ">
-          <div className="  col-12 col-md-12  col-lg-8 ">
-            <div className="row ">
-              {listproduits
-                .filter((val: any) => {
-                  return val.nom.toLowerCase().includes(search.toLowerCase());
-                })
-                .map((Produit: any, index: number) => {
-                  return (
-                    <div
-                      className="col-sm col-lg-4 col-md-4 ml-0 col-sm-6 col-xs-12 my-2 mt-3 "
-                      key={index}
-                    >
-                      <div>
-                        <Card sx={{ maxWidth: 345 }}>
-                          <CardHeader
-                            avatar={
-                              <Avatar aria-label="recipe">
-                                {Produit.nom.slice(0, 1)}
-                              </Avatar>
-                            }
-                            action={
-                              <IconButton aria-label="settings">
-                                <MoreVertIcon />
-                              </IconButton>
-                            }
-                            title={Produit.nom}
-                            subheader={Produit.prix + ' €'}
-                          />
-                          <CardMedia
-                            sx={{
-                              height: 0,
-                              paddingTop: '120.00%' // 16:9
-                            }}
-                            image={Produit.image}
-                          />
-                          <CardContent>
-                            <Typography variant="body2" color="text.secondary">
-                              Prix {''}: {''}
-                              {Produit.prix + ' €'}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              Description {''}: {''}
-                              {Produit.description}
-                            </Typography>
-                          </CardContent>
-                          <CardActions disableSpacing>
-                            <IconButton aria-label="add to favorites">
-                              <Button
-                                type="button"
-                                variant="outlined"
-                                onClick={() => {
-                                  setProduit(Produit);
-                                  setShowUpdate(true);
-                                }}
+        <Card style={{ backgroundColor: '#e9e9e9' }}>
+          <div className="row ">
+            <div className="  col-12 col-md-12  col-lg-8 ">
+              <div className="row ">
+                {listproduits
+                  .filter((val: any) => {
+                    return val.nom.toLowerCase().includes(search.toLowerCase());
+                  })
+                  .map((Produit: any, index: number) => {
+                    return (
+                      <div
+                        className="col-sm col-lg-4 col-md-4 ml-0 col-sm-6 col-xs-12 my-2 mt-3 "
+                        key={index}
+                      >
+                        <div>
+                          <Card sx={{ maxWidth: 345 }}>
+                            <CardHeader
+                              avatar={
+                                <Avatar aria-label="recipe">
+                                  {Produit.nom.slice(0, 1)}
+                                </Avatar>
+                              }
+                              action={
+                                <IconButton aria-label="settings">
+                                  <MoreVertIcon />
+                                </IconButton>
+                              }
+                              title={Produit.nom}
+                              subheader={Produit.prix + ' €'}
+                            />
+                            <CardMedia
+                              sx={{
+                                height: 0,
+                                paddingTop: '120.00%' // 16:9
+                              }}
+                              image={Produit.image}
+                            />
+                            <CardContent>
+                              <Typography
+                                variant="body2"
+                                color="text.secondary"
                               >
-                                Ajouter
-                              </Button>
-                            </IconButton>
-                          </CardActions>
-                        </Card>
+                                Prix {''}: {''}
+                                {Produit.prix + ' €'}
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                color="text.secondary"
+                              >
+                                Description {''}: {''}
+                                {Produit.description}
+                              </Typography>
+                            </CardContent>
+                            <CardActions disableSpacing>
+                              <IconButton aria-label="add to favorites">
+                                <Button
+                                  type="button"
+                                  variant="outlined"
+                                  onClick={() => {
+                                    setProduit(Produit);
+                                    setShowUpdate(true);
+                                  }}
+                                >
+                                  Ajouter
+                                </Button>
+                              </IconButton>
+                            </CardActions>
+                          </Card>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-            </div>
-            <ModalUpdate
-              show={showUpdate}
-              setShow={setShowUpdate}
-              product={Produit}
-              tabCommand={tabCommand}
-              setTabCommand={setTabCommand}
-              setTotal={setTotal}
-            />
-          </div>
-          <div className="col-4 mt-3   d-none d-lg-block ">
-            {' '}
-            {/* le 1/3 qui restait col-4 */}
-            <PanierCommande
-              tabCommand={tabCommand}
-              setTotal={setTotal}
-              selectedOption={selectedOption}
-              total={total}
-              setTabCommand={setTabCommand}
-              idClient={idClient}
-              nomClient={NomClient}
-              setshow={setShow}
-            />
-          </div>
-        </div>
-
-        <div>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Body>
-              <div>
-                <PanierCommande
-                  tabCommand={tabCommand}
-                  setTotal={setTotal}
-                  selectedOption={selectedOption}
-                  total={total}
-                  setTabCommand={setTabCommand}
-                  idClient={idClient}
-                  nomClient={NomClient}
-                  setshow={setShow}
-                />
+                    );
+                  })}
               </div>
-            </Modal.Body>
+              <ModalUpdate
+                show={showUpdate}
+                setShow={setShowUpdate}
+                product={Produit}
+                tabCommand={tabCommand}
+                setTabCommand={setTabCommand}
+                setTotal={setTotal}
+              />
+            </div>
+            <div className="col-4 mt-3   d-none d-lg-block ">
+              {' '}
+              {/* le 1/3 qui restait col-4 */}
+              <PanierCommande
+                tabCommand={tabCommand}
+                setTotal={setTotal}
+                selectedOption={selectedOption}
+                total={total}
+                setTabCommand={setTabCommand}
+                idClient={idClient}
+                nomClient={NomClient}
+                setshow={setShow}
+              />
+            </div>
+          </div>
 
-            <Modal.Footer>
-              <Button onClick={handleClose} variant="outlined">
-                Fermer
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </div>
+          <div>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Body>
+                <div>
+                  <PanierCommande
+                    tabCommand={tabCommand}
+                    setTotal={setTotal}
+                    selectedOption={selectedOption}
+                    total={total}
+                    setTabCommand={setTabCommand}
+                    idClient={idClient}
+                    nomClient={NomClient}
+                    setshow={setShow}
+                  />
+                </div>
+              </Modal.Body>
+
+              <Modal.Footer>
+                <Button onClick={handleClose} variant="outlined">
+                  Fermer
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
+        </Card>
       </Container>
       <Footer />
     </>

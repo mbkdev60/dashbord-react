@@ -130,13 +130,13 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
               </FormControl>
             </Box>
           }
-          />
+        />
 
         <Divider />
-        <TableContainer>
+        <TableContainer style={{ backgroundColor: '#e9e9e9' }}>
           <Table>
             <TableHead>
-              <TableRow>
+              <TableRow style={{ backgroundColor: '#cecece'}}>
                 <TableCell>N° de Commande</TableCell>
                 <TableCell>Client</TableCell>
                 <TableCell>Date</TableCell>
@@ -213,7 +213,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({
             </TableBody>
           </Table>
         </TableContainer>
-        <Box p={2}>
+        <Box p={2} style={{ backgroundColor: '#e9e9e9' }}>
           <TablePagination
             component="div"
             count={filteredCryptoOrders.length}

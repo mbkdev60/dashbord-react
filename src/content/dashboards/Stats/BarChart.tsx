@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,7 +8,6 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
-import { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -28,10 +28,6 @@ function BarChart() {
       legend: {
         position: 'bottom'
       }
-      // title: {
-      //   display: true,
-      //   text: 'CA Mensuel'
-      // }
     }
   };
 
@@ -44,7 +40,6 @@ function BarChart() {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log('🚀 ~ file: BarChart.tsx ~ line 47 ~ .then ~ data', data);
           setdataBarChart(data);
         });
     } catch (error) {
@@ -57,21 +52,21 @@ function BarChart() {
     labels,
     datasets: [
       {
-        label: "Nombre de commandes ",
+        label: "Chiffre d'Affaires",
         data: dataBarChart?.data,
-        backgroundColor: 'rgba(183, 188, 240, 0.993)'
+        backgroundColor: 'rgb(178, 195, 212)',
+        
       }
     ]
-  };
+};
 
-  console.log('🚀 ~ file: BarChart.tsx ~ line 68 ~ BarChart ~ data', data);
   useEffect(() => {
     chiffreAffaires();
   }, []);
 
   return (
     <div className="px-3 mt-5">
-      <h3 className="my-3" style={{ color: 'blue' }}>
+      <h3 className="my-3" style={{ color: 'blue'}}>
         Diagramme des Ventes
       </h3>
       <Bar options={options} data={data} />

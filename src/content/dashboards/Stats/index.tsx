@@ -18,7 +18,7 @@ function DashboardCrypto() {
         <PageHeader />
       </PageTitleWrapper>
       <Container maxWidth="lg">
-        <Card style={{ backgroundColor: '#f5f5f6' }}>
+        <Card style={{ backgroundColor: '#e9e9e9' }}>
           <ChiffreAffaires />
           <TopClient />
           <BarChart />
