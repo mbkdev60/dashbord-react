@@ -30,6 +30,17 @@ function BarChart() {
       }
     }
   };
+  const labels = dataBarChart?.labels;
+  const data: any = {
+    labels,
+    datasets: [
+      {
+        label: "Chiffre d'Affaires",
+        data: dataBarChart?.data,
+        backgroundColor: 'rgb(178, 195, 212)'
+      }
+    ]
+  };
 
   async function chiffreAffaires() {
     try {
@@ -47,26 +58,13 @@ function BarChart() {
     }
   }
 
-  const labels = dataBarChart?.labels;
-  const data: any = {
-    labels,
-    datasets: [
-      {
-        label: "Chiffre d'Affaires",
-        data: dataBarChart?.data,
-        backgroundColor: 'rgb(178, 195, 212)',
-        
-      }
-    ]
-};
-
   useEffect(() => {
     chiffreAffaires();
   }, []);
 
   return (
     <div className="px-3 mt-5">
-      <h3 className="my-3" style={{ color: 'blue'}}>
+      <h3 className="my-3" style={{ color: 'blue' }}>
         Diagramme des Ventes
       </h3>
       <Bar options={options} data={data} />
