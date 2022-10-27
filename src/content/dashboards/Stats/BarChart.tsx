@@ -26,7 +26,12 @@ function BarChart() {
     responsive: true,
     plugins: {
       legend: {
-        position: 'bottom'
+        position: 'bottom',
+        // labels: {
+        //   fonts: {
+        //     fontWeight: '900'
+        //   }
+        // }
       }
     }
   };
@@ -37,8 +42,8 @@ function BarChart() {
       {
         label: "Chiffre d'Affaires",
         data: dataBarChart?.data,
-        backgroundColor: 'rgb(178, 195, 212)'
-      }
+        backgroundColor: 'rgb(178, 195, 212)',
+        }
     ]
   };
 
