@@ -199,25 +199,23 @@ function Register() {
                   </div>
                 </div>
                 <Box sx={{ pb: 2, pt: 2 }} style={{ marginTop: '10px' }}>
-                  <b>
-                    Vous avez déjà un compte?
-                    <span>
-                      <a
-                        style={{
-                          color: '#5569ff',
-                          textDecoration: 'none',
-                          cursor: 'pointer'
-                        }}
-                        href="/"
-                        onClick={() => {
-                          localStorage.removeItem('register');
-                        }}
-                      >
-                        {' '}
-                        Connectez-vous
-                      </a>
-                    </span>
-                  </b>
+                  Vous avez déjà un compte?
+                  <span>
+                    <a
+                      style={{
+                        color: '#5569ff',
+                        textDecoration: 'none',
+                        cursor: 'pointer'
+                      }}
+                      href="/"
+                      onClick={() => {
+                        localStorage.removeItem('register');
+                      }}
+                    >
+                      {' '}
+                      Connectez-vous
+                    </a>
+                  </span>
                 </Box>
 
                 <Grid container spacing={3} mt={5}>
@@ -239,10 +237,8 @@ function Register() {
               </Grid>
             </Grid>
             <Box sx={{ pb: 2 }}>
-              <b>
-                © 2022-Application. All Rights Reserved | Designed by Moez BEN
-                KHALED
-              </b>
+              © 2022-Application. All Rights Reserved | Designed by Moez BEN
+              KHALED
             </Box>
           </Container>
         </Card>

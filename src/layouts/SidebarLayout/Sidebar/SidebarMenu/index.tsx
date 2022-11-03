@@ -173,7 +173,7 @@ function SidebarMenu() {
           component="div"
           subheader={
             <ListSubheader component="div" disableSticky>
-              Marketing
+              Statistiques
             </ListSubheader>
           }
         >
@@ -187,7 +187,7 @@ function SidebarMenu() {
                   to="/dashboards/stats"
                   startIcon={<FaIcons.FaChartLine />}
                 >
-                  Marketing du contenu
+                  Statistiques CA 
                 </Button>
               </ListItem>
             </List>
