@@ -46,7 +46,7 @@ export default function DashboardCrypto() {
   const [id, setId] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('user_id')))
   );
-  let imageProfile = '${process.env.REACT_APP_API_URL}/product.png';
+  let imageProfile = '${process.env.REACT_APP_API_URL}/client.png';
 
   async function getlisteclients() {
     try {
