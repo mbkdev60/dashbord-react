@@ -41,7 +41,6 @@ export default function Modifierclient({
           })
             .then((response) => response.json())
             .then((data: any) => {
-              // setIsUpdate(true);
               EditClient(data);
             });
         } else {

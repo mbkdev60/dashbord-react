@@ -38,9 +38,9 @@ function TopClient() {
 
   return (
     <div className="px-3">
-      <h3 className="my-3" style={{ color: 'blue' }}>
+      <h4 className="my-3" style={{ color: 'blue' }}>
         Top Clients
-      </h3>
+      </h4>
       <div className="row">
         {client.map((elemnt: any, index: number) => {
           return (

@@ -47,11 +47,12 @@ function Register() {
   const [password, setPassword] = React.useState('');
   const [nom, setNom] = React.useState('');
   const [prenom, setPrenom] = React.useState('');
-  let imageProfile = 'http://192.168.2.150:5000/profile.png';
+  const navigate = useNavigate();
+  let imageProfile = 'http://localhost:5000/profile.png';
 
   let re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const navigate = useNavigate();
+  
   function Addclient(image: string) {
     if (password && email && nom && prenom) {
       if (re.test(email)) {
@@ -69,7 +70,7 @@ function Register() {
           .then((response) => response.json())
           .then((data) => {
             Swal.fire({
-              title: ' Un nouveau compte créé ',
+              title: ' Un nouveau compte a été créé ',
               icon: 'success',
               confirmButtonText: 'Ok'
             });

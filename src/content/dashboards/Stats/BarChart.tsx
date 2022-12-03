@@ -21,17 +21,11 @@ ChartJS.register(
 
 function BarChart() {
   const [dataBarChart, setdataBarChart] = useState<any>({});
-
   const options: any = {
     responsive: true,
     plugins: {
       legend: {
         position: 'bottom',
-        // labels: {
-        //   fonts: {
-        //     fontWeight: '900'
-        //   }
-        // }
       }
     }
   };
@@ -46,7 +40,6 @@ function BarChart() {
         }
     ]
   };
-
   async function chiffreAffaires() {
     try {
       await fetch(
@@ -62,16 +55,15 @@ function BarChart() {
       console.log(error);
     }
   }
-
   useEffect(() => {
     chiffreAffaires();
   }, []);
 
   return (
     <div className="px-3 mt-5">
-      <h3 className="my-3" style={{ color: 'blue' }}>
+      <h4 className="my-3" style={{ color: 'blue' }}>
         Diagramme des Ventes
-      </h3>
+      </h4>
       <Bar options={options} data={data} />
     </div>
   );
