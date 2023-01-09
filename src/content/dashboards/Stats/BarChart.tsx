@@ -21,20 +21,25 @@ ChartJS.register(
 
 function BarChart() {
   const [dataBarChart, setdataBarChart] = useState<any>({});
-
   const options: any = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'bottom'
+        position: 'bottom',
       }
-      // title: {
-      //   display: true,
-      //   text: 'CA Mensuel'
-      // }
     }
   };
-
+  const labels = dataBarChart?.labels;
+  const data: any = {
+    labels,
+    datasets: [
+      {
+        label: "Chiffre d'Affaires",
+        data: dataBarChart?.data,
+        backgroundColor: 'rgb(178, 195, 212)',
+        }
+    ]
+  };
   async function chiffreAffaires() {
     try {
       await fetch(
@@ -44,13 +49,13 @@ function BarChart() {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log('🚀 ~ file: BarChart.tsx ~ line 47 ~ .then ~ data', data);
           setdataBarChart(data);
         });
     } catch (error) {
       console.log(error);
     }
   }
+<<<<<<< HEAD
 
   const labels = dataBarChart?.labels;
   const data: any = {
@@ -65,15 +70,17 @@ function BarChart() {
   };
 
   console.log('🚀 ~ file: BarChart.tsx ~ line 68 ~ BarChart ~ data', data);
+=======
+>>>>>>> 4e3fb1dd9b689d030e7e290c96a112ffb84d427d
   useEffect(() => {
     chiffreAffaires();
   }, []);
 
   return (
     <div className="px-3 mt-5">
-      <h3 className="my-3" style={{ color: 'blue' }}>
+      <h4 className="my-3" style={{ color: 'blue' }}>
         Diagramme des Ventes
-      </h3>
+      </h4>
       <Bar options={options} data={data} />
     </div>
   );

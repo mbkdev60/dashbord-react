@@ -149,8 +149,7 @@ function Login() {
             </div>
           </div>
           <Box sx={{ pb: 2, pt: 2 }}>
-            <b>
-              Vous n'avez pas de Compte ?
+            Vous n'avez pas de Compte ?
               <span>
                 <a
                   style={{
@@ -168,7 +167,6 @@ function Login() {
                   Inscrivez-vous
                 </a>
               </span>
-            </b>
           </Box>
 
           <Grid container spacing={3} mt={5}>

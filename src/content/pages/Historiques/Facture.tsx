@@ -52,7 +52,6 @@ function Facture({
                   width: '10rem',
                   height: '10rem',
                   marginLeft: '100px',
-                  // color: '#1758e3'
                 }}
               />
             </div>

@@ -46,7 +46,7 @@ export default function DashboardCrypto() {
   const [id, setId] = useState(
     JSON.parse(JSON.stringify(localStorage.getItem('user_id')))
   );
-  let imageProfile = '${process.env.REACT_APP_API_URL}/product.png';
+  let imageProfile = '${process.env.REACT_APP_API_URL}/client.png';
 
   async function getlisteclients() {
     try {
@@ -120,7 +120,7 @@ export default function DashboardCrypto() {
                     className="col-lg-4 col-xl-4 col-md-6 ml-0 col-sm-12 col-xs-12 my-2"
                     key={index}
                   >
-                    <Card style={{ backgroundColor: '#f5f5f6' }}>
+                    <Card style={{ backgroundColor: '#e9e9e9' }}>
                       <CardHeader title="Fiche Client" />
                       <Divider />
                       <CardContent>

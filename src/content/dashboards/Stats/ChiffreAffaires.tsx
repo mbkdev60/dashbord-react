@@ -78,7 +78,7 @@ function ChiffreAffaires() {
             <Box>
               <Typography variant="h3"> {Sum} €</Typography>
               <Typography variant="subtitle2" noWrap>
-                Ce mois
+                A ce jour
               </Typography>
             </Box>
           </Box>

@@ -24,7 +24,7 @@ function ModalDetail({
   sctedetail,
   datecommande,
   totcommande
-}: Modaltype) {
+  }: Modaltype) {
   const [commande, setcommande] = useState<any>();
   const [client, setclient] = useState<any>([]);
   const componentRef = useRef<HTMLDivElement>(null);
