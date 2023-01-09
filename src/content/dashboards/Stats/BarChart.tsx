@@ -55,7 +55,6 @@ function BarChart() {
       console.log(error);
     }
   }
-<<<<<<< HEAD
 
   const labels = dataBarChart?.labels;
   const data: any = {
@@ -70,8 +69,6 @@ function BarChart() {
   };
 
   console.log('🚀 ~ file: BarChart.tsx ~ line 68 ~ BarChart ~ data', data);
-=======
->>>>>>> 4e3fb1dd9b689d030e7e290c96a112ffb84d427d
   useEffect(() => {
     chiffreAffaires();
   }, []);
