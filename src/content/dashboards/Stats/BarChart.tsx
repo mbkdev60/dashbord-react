@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,7 +8,6 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
-import { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -57,7 +57,7 @@ function BarChart() {
     labels,
     datasets: [
       {
-        label: "Nombre de commandes ",
+        label: 'Nombre de commandes ',
         data: dataBarChart?.data,
         backgroundColor: 'rgba(183, 188, 240, 0.993)'
       }
