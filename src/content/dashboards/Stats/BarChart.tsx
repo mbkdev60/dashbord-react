@@ -21,17 +21,11 @@ ChartJS.register(
 
 function BarChart() {
   const [dataBarChart, setdataBarChart] = useState<any>({});
-
   const options: any = {
     responsive: true,
     plugins: {
       legend: {
         position: 'bottom',
-        // labels: {
-        //   fonts: {
-        //     fontWeight: '900'
-        //   }
-        // }
       }
     }
   };
@@ -46,7 +40,6 @@ function BarChart() {
         }
     ]
   };
-
   async function chiffreAffaires() {
     try {
       await fetch(
@@ -62,7 +55,6 @@ function BarChart() {
       console.log(error);
     }
   }
-
   useEffect(() => {
     chiffreAffaires();
   }, []);
