@@ -55,23 +55,6 @@ function BarChart() {
       console.log(error);
     }
   }
-<<<<<<< HEAD
-=======
-
-  const labels = dataBarChart?.labels;
-  const data: any = {
-    labels,
-    datasets: [
-      {
-        label: 'Nombre de commandes ',
-        data: dataBarChart?.data,
-        backgroundColor: 'rgba(183, 188, 240, 0.993)'
-      }
-    ]
-  };
-
-  console.log('🚀 ~ file: BarChart.tsx ~ line 68 ~ BarChart ~ data', data);
->>>>>>> eddafbf0a3a9677b690feda0674c7b902d9c2245
   useEffect(() => {
     chiffreAffaires();
   }, []);
